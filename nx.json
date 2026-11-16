@@ -1,0 +1,90 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "analytics": false,
+  "generators": {
+    "@nx/angular:application": {
+      "e2eTestRunner": "none",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "vitest-angular"
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs"
+    ],
+    "sharedGlobals": []
+  },
+  "plugins": [
+    {
+      "options": {
+        "targetName": "lint"
+      },
+      "plugin": "@nx/eslint/plugin"
+    }
+  ],
+  "release": {
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": false
+      }
+    },
+    "projects": ["tag:publishable"],
+    "version": {
+      "adjustSemverBumpsForZeroMajorVersion": false,
+      "preVersionCommand": "pnpm exec nx run-many -t build patch-package-exports -p tag:publishable"
+    }
+  },
+  "targetDefaults": {
+    "@angular/build:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@angular/build:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"],
+      "options": {
+        "coverage": true,
+        "coverageReporters": ["text-summary", "lcov"]
+      }
+    },
+    "@nx/angular:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"],
+      "options": {
+        "coverage": true,
+        "coverageReporters": ["text-summary", "lcov"]
+      }
+    },
+    "pack": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "task ci:dist:resolve -- dist/{projectRoot} && mkdir -p dist/tarballs && npm pack ./dist/{projectRoot} --pack-destination dist/tarballs",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "verify-consumer": {
+      "cache": false,
+      "dependsOn": ["pack"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "task ci:consumer -- {projectRoot}",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "verify-dist": {
+      "cache": false,
+      "dependsOn": ["pack"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "task ci:dist:verify -- dist/{projectRoot}",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}

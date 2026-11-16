@@ -1,0 +1,43 @@
+[project]
+name = "apollo-api"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Rohit Narayanan", email = "rohit.nn@gmail.com" },
+]
+requires-python = ">=3.14"
+dependencies = [
+    "rn-forge-commons>=0.8.1,<0.9",
+    "rn-forge-cli>=0.1.2,<0.2",
+    "rn-forge-web>=0.3.0,<0.4",
+    "rn-forge-fastapi>=0.4.0,<0.5",
+]
+
+[project.scripts]
+apollo-api = "apollo_api:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pyright]
+reportMissingTypeStubs = false
+typeCheckingMode = "strict"
+venv = ".venv"
+venvPath = "../.."
+
+[tool.pytest.ini_options]
+addopts = "-ra --import-mode=importlib"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN", "D", "PLR2004", "S101"]
+
+[tool.uv.build-backend]
+module-name = "apollo_api"
+source-exclude = ["**/.DS_Store"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "uvicorn>=0.30",
+]

@@ -1,0 +1,88 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "web",
+  "prefix": "app",
+  "projectType": "application",
+  "sourceRoot": "apps/web/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "8kb",
+              "maximumWarning": "4kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular/build:application",
+      "options": {
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/web/public"
+          }
+        ],
+        "browser": "apps/web/src/main.ts",
+        "inlineStyleLanguage": "scss",
+        "outputPath": "dist/apps/web",
+        "styles": ["apps/web/src/styles.scss"],
+        "tsConfig": "apps/web/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "buildTarget": "web:build:development"
+        },
+        "production": {
+          "buildTarget": "web:build:production"
+        }
+      },
+      "continuous": true,
+      "defaultConfiguration": "development",
+      "executor": "@angular/build:dev-server",
+      "options": {
+        "proxyConfig": "apps/web/proxy.conf.json"
+      },
+      "readyWhen": {
+        "signal": true
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "dependsOn": ["build"],
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "web:build",
+        "spa": true,
+        "staticFilePath": "dist/apps/web/browser"
+      },
+      "readyWhen": {
+        "signal": true
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "watch": false
+      }
+    }
+  }
+}
