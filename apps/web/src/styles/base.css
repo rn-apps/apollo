@@ -1,0 +1,14 @@
+@media (max-width: 820px) {
+  :root {
+    --apollo-row-h: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
