@@ -117,10 +117,10 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "rn-forge-cli", specifier = ">=0.1.2,<0.2" },
-    { name = "rn-forge-commons", specifier = ">=0.8.1,<0.9" },
-    { name = "rn-forge-fastapi", specifier = ">=0.4.0,<0.5" },
-    { name = "rn-forge-web", specifier = ">=0.3.0,<0.4" },
+    { name = "rn-forge-cli", specifier = ">=0.2.0,<0.3" },
+    { name = "rn-forge-commons", specifier = ">=0.10.0,<0.11" },
+    { name = "rn-forge-fastapi", specifier = ">=0.5.0,<0.6" },
+    { name = "rn-forge-web", specifier = ">=0.3.2,<0.4" },
 ]
 
 [package.metadata.requires-dev]
@@ -1476,34 +1476,34 @@ wheels = [
 
 [[package]]
 name = "rn-forge-auth"
-version = "0.1.1"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "rn-forge-commons" },
     { name = "rn-forge-web" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/01/6f/35b440e26ec6a53353e30764d415e86aa12579c4f30a36abc9d0ab020785/rn_forge_auth-0.1.1.tar.gz", hash = "sha256:1afc4418d0b37f021981152e7882fe09c3f72a28436a7c7f32ceb72969146227", size = 42322, upload-time = "2026-11-14T12:05:51.828Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/ad/1e0e7740d7897b905072a5513f44588eb7e16ee8d0a462ad26cd707a607b/rn_forge_auth-0.2.0.tar.gz", hash = "sha256:4894474dbb313b4c7343c07a9463bca42a397afba707630556b3b361d6ffedf1", size = 46351, upload-time = "2026-11-18T05:31:16.949Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c7/a4/fcc6f3f690e123e595d4a32be48082c54b7f38f9fbc3dcebc2a2263533f2/rn_forge_auth-0.1.1-py3-none-any.whl", hash = "sha256:586a2545a658729a84f93afc37eb6dda262d457e1644a661647def2df0708c42", size = 49875, upload-time = "2026-11-14T12:05:50.594Z" },
+    { url = "https://files.pythonhosted.org/packages/ce/d8/4ff3229191378d6d159e5e47ac362b1e60e372d6ab2e079958811eeb9a72/rn_forge_auth-0.2.0-py3-none-any.whl", hash = "sha256:22535547dc3691997c90b7b41ce73042d599e655fe634f67a50a24d00eeada78", size = 55256, upload-time = "2026-11-18T05:31:15.402Z" },
 ]
 
 [[package]]
 name = "rn-forge-cli"
-version = "0.1.3"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "rich" },
     { name = "rn-forge-commons" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d2/33/22a39416f5feb037d04fd1e99b964c2ee3eff6b16a6dd915e53f23f8a595/rn_forge_cli-0.1.3.tar.gz", hash = "sha256:d5c3eb5446151ea960b502e89dd040092657af748345011c350b7127fdaba05f", size = 10089, upload-time = "2026-11-14T12:05:34.144Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/52/20/b56dcd50b7e3286f8e17d31f161347bf5bccdf4616b2e89001b39ad7009c/rn_forge_cli-0.2.0.tar.gz", hash = "sha256:d192925d2bdac4cd90cc5aab6ebfb101efdfe7b4aa5adff700c61adda4b95a07", size = 11198, upload-time = "2026-11-18T05:31:00.088Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/30/aa1358b191b6ee78f8585091d75a08605ecc6375a77b3494859a659ca905/rn_forge_cli-0.1.3-py3-none-any.whl", hash = "sha256:e9dd7bdaf72f3c656c512eb38b4f8393648c5c4d267fd7bedda042cb8b1348d6", size = 11751, upload-time = "2026-11-14T12:05:32.994Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/4a/a91febb0746bb73f44d47a81897797377449f32e17b1cd29cc6f5225da7f/rn_forge_cli-0.2.0-py3-none-any.whl", hash = "sha256:34e367041db36cc8e216cc779d347d5328c76b3511a137010ff115807634bc78", size = 12821, upload-time = "2026-11-18T05:30:58.806Z" },
 ]
 
 [[package]]
 name = "rn-forge-commons"
-version = "0.8.1"
+version = "0.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dacite" },
@@ -1512,9 +1512,9 @@ dependencies = [
     { name = "tomlkit" },
     { name = "verboselogs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ba/3c/88b634fc98ce8097d64d61d1369cfd9a6a13221c1457ccc2523cab5a6e75/rn_forge_commons-0.8.1.tar.gz", hash = "sha256:8d3cedd792fde60d6ceabe4e20f0461aa3ab8ca1d77c67fdcaf00358b2b867ed", size = 92039, upload-time = "2026-10-31T00:49:06.013Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/65/54/c77904a7add24c895d9e5ba877e12fe5e71ea687c000a7e724c7a111ccef/rn_forge_commons-0.10.0.tar.gz", hash = "sha256:161c4c9c5968d2e06dc02349ad65e55aa72548495e8ef12bb0e4216c97e4e82d", size = 99660, upload-time = "2026-11-18T05:30:48.824Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7e/65/eff10ad06f968e58d00829f663a2ec37c537a1a7ca197ec74af47462fd51/rn_forge_commons-0.8.1-py3-none-any.whl", hash = "sha256:94aa8e69b338b7f7e1142913f8deed36039b9237f625834eac3e531621a27cb1", size = 110337, upload-time = "2026-10-31T00:49:04.501Z" },
+    { url = "https://files.pythonhosted.org/packages/c1/07/8ddada1e1c6a84d60726dc7ef1977bafa377f32aac69aed023dd8d8ffcc9/rn_forge_commons-0.10.0-py3-none-any.whl", hash = "sha256:bea0cd873e178dd5619f968b6b25a907a3b5ffeda33d898238ca274dec10913f", size = 118863, upload-time = "2026-11-18T05:30:47.162Z" },
 ]
 
 [package.optional-dependencies]
@@ -1524,7 +1524,7 @@ pydantic = [
 
 [[package]]
 name = "rn-forge-fastapi"
-version = "0.4.1"
+version = "0.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fastapi" },
@@ -1533,22 +1533,22 @@ dependencies = [
     { name = "rn-forge-commons" },
     { name = "rn-forge-web", extra = ["security"] },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/57/c0/b265cec330a35eb43c4bae8cfa004d110c65727fa0986cac6b7e8b11bb1a/rn_forge_fastapi-0.4.1.tar.gz", hash = "sha256:8a2d7513c489440ee0af39ddb3d9c0c0dbb1fc890a36e4451d880446e2b2686f", size = 50004, upload-time = "2026-11-14T12:06:16.85Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/7c/258ed5127d898e8a6f49c9240d51425ffe919fcd7d3535650273c38746a2/rn_forge_fastapi-0.5.0.tar.gz", hash = "sha256:5e7de3f2f6aa6c112f910cb46850409ca77794a13b8970b1b1a89b72460f433f", size = 50944, upload-time = "2026-11-18T05:31:39.923Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a5/00/50c35fc23c4cd1004fad4044eafd7ca5034157cb48e072ad47a2f6149600/rn_forge_fastapi-0.4.1-py3-none-any.whl", hash = "sha256:388d8dc6624cb6709d60b3134fc126442aa9750ab7830512f906ec7cfd068315", size = 61237, upload-time = "2026-11-14T12:06:15.543Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/11/4c01faa156a32154c48d41fdeea1e4490f95a5e38fd9d6518131dbb5e787/rn_forge_fastapi-0.5.0-py3-none-any.whl", hash = "sha256:f4865fbd4df4e8205776f81dbc536728f09d14054ee985362b63f194c7d864db", size = 62787, upload-time = "2026-11-18T05:31:38.806Z" },
 ]
 
 [[package]]
 name = "rn-forge-web"
-version = "0.3.1"
+version = "0.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "rn-forge-commons", extra = ["pydantic"] },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a6/80/b31f4a24d6ff7a362a8767384986eb3421ee3e065522152c8859625d9e63/rn_forge_web-0.3.1.tar.gz", hash = "sha256:4676c7ffdc2d11790ca7bd43110723d7489fabc682b75a7dd5f73bba38155315", size = 57545, upload-time = "2026-11-14T12:05:45.83Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2d/2d/51ae95353583f6f45fd192fe5dabbe616f40d4adbd9104fb8e9009f441fa/rn_forge_web-0.3.2.tar.gz", hash = "sha256:f4992cdca30f854ab9883f4efc2ede37a89b761ad1e97cd0c0dba798cee9a1d1", size = 58316, upload-time = "2026-11-18T05:31:11.07Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/d8/cceb5b110c71d60e0885b475104c010bff2d4f4993d785c804475b2bf7cb/rn_forge_web-0.3.1-py3-none-any.whl", hash = "sha256:0bedde2cbebf9be4e16d96920ae24ee92d6b526fb430f1294557d43526e6924d", size = 66653, upload-time = "2026-11-14T12:05:44.474Z" },
+    { url = "https://files.pythonhosted.org/packages/5a/a7/f32bb1fe4f87e52bef5e1855f88ea3021b97dd3dd76bda36a72c94af1769/rn_forge_web-0.3.2-py3-none-any.whl", hash = "sha256:2eb183500799e149ac9d21e058af2e3ab8633078cba6aa1f66195cdb13d25182", size = 70818, upload-time = "2026-11-18T05:31:09.892Z" },
 ]
 
 [package.optional-dependencies]
