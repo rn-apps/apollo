@@ -65,7 +65,7 @@
     },
     ".github/workflows/ci.yml": {
       "begin_marker": null,
-      "content_hash": "567e862f70a759d9381d2e4863142901d6d9ece5fcb3bb28d2686bffe5cce3c9",
+      "content_hash": "88c3de56cc91e8c7265a6417ef24af14a37306b43ee30d4fb486c37b24b89422",
       "end_marker": null,
       "kind": "managed",
       "path": ".github/workflows/ci.yml"
@@ -107,7 +107,7 @@
     },
     ".rn-forge/kiln/standard.md": {
       "begin_marker": null,
-      "content_hash": "190de8347676f5923b056752c19561308e69ebfedb025768fe558a6ff8d03bd7",
+      "content_hash": "cd53995bb2539595df6ace97d6f2661ff3d61eaa6f889853ba14dc702b003b01",
       "end_marker": null,
       "kind": "managed",
       "path": ".rn-forge/kiln/standard.md"
@@ -135,7 +135,7 @@
     },
     "Taskfile.yml": {
       "begin_marker": null,
-      "content_hash": "bb10b23843ba179bc3255a300a4f2e5e20587e592101bc3678bb782fadfa75cc",
+      "content_hash": "c8a425dd186ccdf12331085e2b5f05bbe4bfb802d2d19b62aa7fa9e2b766eb97",
       "end_marker": null,
       "kind": "managed",
       "path": "Taskfile.yml"
@@ -387,35 +387,35 @@
     },
     "tasks/ci.yml": {
       "begin_marker": null,
-      "content_hash": "30d58dde2de5f36b3b19dd64b5ed17fff0a06fc02ddb6bb48e33e58afdb2765f",
+      "content_hash": "7327a51627f4d159c66a5761237aaa81f11fc140e3e12c4e8fc0c5a682f0cbd0",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/ci.yml"
     },
     "tasks/docs.yml": {
       "begin_marker": null,
-      "content_hash": "b1d02d9070f30eb6fc6a70d1264d91f78cca4371a1a293c258e5b889f488d6a4",
+      "content_hash": "8668f40c58447f7ab284329dac19d0c76f1f1d365b5c06215a52b45cc318035c",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/docs.yml"
     },
     "tasks/kiln.yml": {
       "begin_marker": null,
-      "content_hash": "be60873f48ca442bedb34430e99ad55610ad86fbe1b50d44bffc64fe67d944be",
+      "content_hash": "0bcba660fb40a81139b1c912b8d44d9e618cba1da2e0cfc9dca30a64df10cebd",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/kiln.yml"
     },
     "tasks/node.yml": {
       "begin_marker": null,
-      "content_hash": "77c0939546798fcf0538fe71f39ab56b2803426479aa7b933db13e38d431526c",
+      "content_hash": "fa5775f978ed15dd303a13aceac059dc8b05fd75afb2393e1164c45e47b80678",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/node.yml"
     },
     "tasks/python.yml": {
       "begin_marker": null,
-      "content_hash": "cab119f6b3c21f447908b0b9bd071b4e9f1ecd56df33b402b42ba4525e5533e3",
+      "content_hash": "fefbc5f449adbf4ab871d3064cc3230bd9ec36c4f7e4087318d7a446eb4a4b2e",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/python.yml"
@@ -429,7 +429,7 @@
     },
     "tasks/sonar.yml": {
       "begin_marker": null,
-      "content_hash": "356677e40f184b8aebb0a277f8b14e1432193ca68589f16cc0c249f143658586",
+      "content_hash": "b970a2debe6be326b3b64e3944cecb162e64d6845304ce96d8865715be78c6ce",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/sonar.yml"
@@ -450,7 +450,7 @@
     }
   },
   "metadata": {
-    "config_hash": "197e7cb52ac85a53e9721be3a7a5ce79614dfb842b01e57d6d32bfb2f3f6833f",
+    "config_hash": "a9a28742fc7ea5bd20079139f1faa79ffa6e014009ced5c9803e02b9033461c7",
     "config_provenance": {
       "archetype.python-web-app.api_dir": {
         "layer": "defaults",
