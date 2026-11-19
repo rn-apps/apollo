@@ -22,8 +22,8 @@ env:
 # this file alone. go-task passes these to each included file; a namespace file
 # that declared its own would shadow them.
 vars:
-  KILN: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@1b2dedf38df79dc7134acdae85c59849912b9956" kiln'
-  DEVOPS: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@1b2dedf38df79dc7134acdae85c59849912b9956" kiln-devops'
+  KILN: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@7b0883119be5d89027bb0fb78d7e5233377b0cee" kiln'
+  DEVOPS: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@7b0883119be5d89027bb0fb78d7e5233377b0cee" kiln-devops'
 
 includes:
   quality: tasks/quality.yml
@@ -145,3 +145,11 @@ tasks:
     desc: Remove build outputs, caches, and the rendered docs site.
     cmds:
       - task: workspace:clean
+
+  dev:
+    desc: Run the API and the frontend dev servers together; Ctrl-C stops both.
+    # deps run in parallel: each dev server blocks, so cmds could never reach
+    # the second one.
+    deps:
+      - task: api:dev
+      - task: web:dev

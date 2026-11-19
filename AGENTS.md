@@ -43,7 +43,8 @@ changing anything structural.
   `mkdocs`, `pnpm`, `npx`, `nx`, `ng` or `kiln` directly, in a workflow or in
   a document — the ten root verbs are
   `setup validate lint format typecheck test test:coverage build clean version`,
-  plus `docs:build docs:serve docs:generate` and `api:dev`, plus `web:dev`.
+  plus `docs:build docs:serve docs:generate` and `api:dev`, plus `web:dev`,
+  and `dev` runs both.
 - **Frontend:** `angular`, managed by pnpm + Nx at `apps/web` (project `web`).
   Every file the frontend scaffold wrote is repo-owned; kiln renders nothing
   under `apps/web`, and seeded a starter page that calls the API

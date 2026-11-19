@@ -27,6 +27,7 @@ The developer surface for this repo is exactly:
 | `task api:dev` | Run the API dev server on port 8000. |
 | `task build` | Build the API's wheel and sdist, and the frontend. |
 | `task clean` | Remove build outputs, caches, and the rendered docs site. |
+| `task dev` | Run the API and the frontend dev servers together; Ctrl-C stops both. |
 | `task docs:build` | Build the MkDocs site into .docs-site/ (or $1 when given). |
 | `task docs:generate` | Regenerate the docs' derived regions. |
 | `task docs:serve` | Serve the docs site locally with live reload on http://127.0.0.1:8080. |
