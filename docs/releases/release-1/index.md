@@ -18,7 +18,7 @@ connection to the scaffold API.
 
 | Feature | Epic | State |
 | -- | -- | -- |
-| [F2.1 — Web dependencies on current ngkit](../../specs/epics/E2-frontend-foundation/F2.1-web-dependencies.md) | E2 | Active |
+| [F2.1 — Web dependencies on current ngkit](../../specs/epics/E2-frontend-foundation/F2.1-web-dependencies.md) | E2 | Closed |
 | [F2.4 — apollo theme over ngkit tokens](../../specs/epics/E2-frontend-foundation/F2.4-theme.md) | E2 | New |
 | [F2.7 — Branded home with a live API check](../../specs/epics/E2-frontend-foundation/F2.7-connected-home.md) | E2 | New |
 
@@ -35,8 +35,8 @@ None.
 
 ## Progress
 
-The ngkit dependency and token smoke test is in progress. Verify the theme next,
-then walk through connection and recovery in the browser with the owner. The
+The ngkit dependency and token smoke test is closed. Verify the theme next, then
+walk through connection and recovery in the browser with the owner. The
 [foundation sequence](../../specs/index.md#foundation-sequence) picks up the
 backend runtime after this checkpoint.
 
@@ -45,8 +45,6 @@ backend runtime after this checkpoint.
 ```sh
 git log --oneline -E --grep='[FS]2\.(1|4|7)(\.|[^0-9]|$)'
 ```
-
-No implementation commits yet.
 
 ## Exit criteria
 

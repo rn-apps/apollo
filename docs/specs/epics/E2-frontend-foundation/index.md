@@ -9,7 +9,7 @@
 
 | Feature | State | Iteration | Stories |
 | -- | -- | -- | -- |
-| [F2.1 — Web dependencies on current ngkit](F2.1-web-dependencies.md) | Active | release-1 | 1 Active |
+| [F2.1 — Web dependencies on current ngkit](F2.1-web-dependencies.md) | Closed | release-1 | 1 Closed |
 | [F2.2 — Generated API client](F2.2-generated-client.md) | New | — | 2 New |
 | [F2.3 — Live state: event stream, status store and invalidation](F2.3-live-state.md) | New | — | 2 New |
 | [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | New | release-1 | 1 New |

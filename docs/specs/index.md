@@ -27,7 +27,7 @@ the first checkpoint is assigned to a release.
 
 | Release | Status | Features |
 | -- | -- | -- |
-| [Release 1 — Connected home](../releases/release-1/index.md) | in progress | 1 Active · 2 New |
+| [Release 1 — Connected home](../releases/release-1/index.md) | in progress | 2 New · 1 Closed |
 
 ## Backlog
 
