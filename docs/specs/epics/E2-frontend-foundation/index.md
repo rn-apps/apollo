@@ -2,18 +2,20 @@
 
 |  |  |
 | -- | -- |
-| **State** | New |
+| **State** | Active |
+| **Start Date** | 2026-11-18 |
 
 <!-- BEGIN derived features -->
 
 | Feature | State | Iteration | Stories |
 | -- | -- | -- | -- |
-| [F2.1 — Web dependencies on current ngkit](F2.1-web-dependencies.md) | New | — | 1 New |
+| [F2.1 — Web dependencies on current ngkit](F2.1-web-dependencies.md) | Active | release-1 | 1 Active |
 | [F2.2 — Generated API client](F2.2-generated-client.md) | New | — | 2 New |
 | [F2.3 — Live state: event stream, status store and invalidation](F2.3-live-state.md) | New | — | 2 New |
-| [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | New | — | 1 New |
+| [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | New | release-1 | 1 New |
 | [F2.5 — Shell, navigation, routes and URL state](F2.5-shell-and-routes.md) | New | — | 4 New |
 | [F2.6 — Frontend layering lint](F2.6-frontend-guardrails.md) | New | — | 1 New |
+| [F2.7 — Branded home with a live API check](F2.7-connected-home.md) | New | release-1 | 1 New |
 
 <!-- END derived features -->
 
@@ -24,9 +26,14 @@ command palette), routes, URL state, and the layering lint. It is a rewrite, not
 a port ([ADR-0002](../../../adr/ADR-0002.md)). The old SvelteKit shell and
 `routes/` are its requirements.
 
-When E2 closes, `task web:dev` shows the shell with every route as an empty
-page. The bottom bar reflects job and status frames from a running API, and
-`task validate` is green.
+The first checkpoint is the [connected home](F2.7-connected-home.md), using the
+ngkit theme and the scaffold API. The
+[foundation sequence](../../index.md#foundation-sequence) shows when the
+generated client, live state and navigation shell follow.
+
+When E2 closes, `task web:dev` shows the shell with the branded home and a
+placeholder page for every other route. The bottom bar reflects job and status
+frames from a running API, and `task validate` is green.
 
 Decisions: [ADR-0003](../../../adr/ADR-0003.md) ngkit first,
 [ADR-0004](../../../adr/ADR-0004.md) one component per concept,

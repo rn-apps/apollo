@@ -28,6 +28,11 @@ and the test harness and layering guardrails. It ports the old apollo's generic
 infrastructure onto pykit ([ADR-0002](../../../adr/ADR-0002.md)) and holds no
 screen.
 
+Start F1.1 after the
+[connected home](../E2-frontend-foundation/F2.7-connected-home.md) has been
+reviewed. The [foundation sequence](../../index.md#foundation-sequence) breaks
+E1 into checkpoints for runtime, fixture data, jobs and reversible writes.
+
 When E1 closes, `task validate` is green, `task api:dev` serves `/v1/status` and
 `/v1/events`, a scan job of a generated fixture library runs end to end, and an
 audited tag write can be undone. These are what every feature epic (E5–E14)

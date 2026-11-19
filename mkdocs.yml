@@ -101,6 +101,7 @@ nav:
               - F2.4 — apollo theme over ngkit tokens: specs/epics/E2-frontend-foundation/F2.4-theme.md
               - F2.5 — Shell, navigation, routes and URL state: specs/epics/E2-frontend-foundation/F2.5-shell-and-routes.md
               - F2.6 — Frontend layering lint: specs/epics/E2-frontend-foundation/F2.6-frontend-guardrails.md
+              - F2.7 — Branded home with a live API check: specs/epics/E2-frontend-foundation/F2.7-connected-home.md
           - E3 — ngkit primitives apollo needs:
               - specs/epics/E3-ngkit-primitives/index.md
               - 'F3.1 — Overlays: modal, side panel and confirm': specs/epics/E3-ngkit-primitives/F3.1-overlays.md
