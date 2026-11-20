@@ -30,7 +30,7 @@
     "angular-eslint": "^22.5.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
-    "jsdom": "^27.1.0",
+    "jsdom": "^31.0.1",
     "nx": "24.0.4",
     "prettier": "~3.9.10",
     "tslib": "^2.3.0",
