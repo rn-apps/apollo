@@ -61,6 +61,10 @@ Thumbs.db
 
 __screenshots__/
 
+# apollo's runtime state and local settings
+.apollo/
+.env
+
 # BEGIN rn-forge kiln
 # kiln's own state
 .rn-forge/kiln/backups/
