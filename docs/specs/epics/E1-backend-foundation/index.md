@@ -9,7 +9,7 @@
 
 | Feature | State | Iteration | Stories |
 | -- | -- | -- | -- |
-| [F1.1 — Dependencies, entry point and CI tools](F1.1-dependencies-and-entry.md) | Active | release-1 | 3 New · 1 Closed |
+| [F1.1 — Dependencies, entry point and CI tools](F1.1-dependencies-and-entry.md) | Active | release-1 | 1 Active · 2 New · 1 Closed |
 | [F1.2 — Settings, runtime paths and logging](F1.2-settings-and-runtime.md) | New | release-1 | 2 New |
 | [F1.3 — Errors, paging and the API contract](F1.3-api-contract.md) | New | release-1 | 2 New |
 | [F1.4 — apollo.db](F1.4-apollo-db.md) | New | — | 2 New |

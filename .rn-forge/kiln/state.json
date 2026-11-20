@@ -9,14 +9,14 @@
     },
     ".github/actions/setup/action.yml": {
       "begin_marker": null,
-      "content_hash": "05232f1a80c1621755d2fe465fb0c311a610b9009f62cbd13871d78309570e6d",
+      "content_hash": "49095edfa2baee636c065ed79c02c240452dfda889f9e4a8af7d500522bd5765",
       "end_marker": null,
       "kind": "managed",
       "path": ".github/actions/setup/action.yml"
     },
     ".github/dependabot.yml": {
       "begin_marker": null,
-      "content_hash": "98dae79d4fae3f441860700de805c229dd6273058f6e115bf5d948bd7915776f",
+      "content_hash": "01eef49458abdddfe24a9598c5a699239003d1d0d1b997c72ee0f327f5b36707",
       "end_marker": null,
       "kind": "managed",
       "path": ".github/dependabot.yml"
@@ -450,7 +450,7 @@
     }
   },
   "metadata": {
-    "config_hash": "fb0664dcae739c10bac66649f6dd537f93fc7a11e9dd582bdc5d1839bf5ab08b",
+    "config_hash": "8a8c1d60197b1ba2349943422158c5ebd13f98c77f19f54dfc364f2c3b9dc4b8",
     "config_provenance": {
       "archetype.python-web-app.api_dir": {
         "layer": "defaults",
@@ -477,8 +477,10 @@
         "value": []
       },
       "ci.hooks.setup": {
-        "layer": "defaults",
-        "value": []
+        "layer": "repo",
+        "value": [
+          "./.github/actions/media-tools"
+        ]
       },
       "ci.jobs": {
         "layer": "defaults",

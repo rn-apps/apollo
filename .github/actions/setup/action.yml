@@ -39,3 +39,6 @@ runs:
       with:
         node-version-file: .nvmrc
         cache: pnpm
+
+    - name: Run ./.github/actions/media-tools
+      uses: ./.github/actions/media-tools # zizmor: ignore[self-repository] actionlint rejects the $/ form
