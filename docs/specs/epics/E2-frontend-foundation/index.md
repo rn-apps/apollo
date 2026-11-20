@@ -12,7 +12,7 @@
 | [F2.1 — Web dependencies on current ngkit](F2.1-web-dependencies.md) | Closed | release-1 | 1 Closed |
 | [F2.2 — Generated API client](F2.2-generated-client.md) | New | — | 2 New |
 | [F2.3 — Live state: event stream, status store and invalidation](F2.3-live-state.md) | New | — | 2 New |
-| [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | Active | release-1 | 1 Active |
+| [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | Closed | release-1 | 1 Closed |
 | [F2.5 — Shell, navigation, routes and URL state](F2.5-shell-and-routes.md) | New | — | 4 New |
 | [F2.6 — Frontend layering lint](F2.6-frontend-guardrails.md) | New | — | 1 New |
 | [F2.7 — Branded home with a live API check](F2.7-connected-home.md) | Closed | release-1 | 1 Closed |

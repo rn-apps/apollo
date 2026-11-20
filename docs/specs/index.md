@@ -27,7 +27,7 @@ the first checkpoint is assigned to a release.
 
 | Release | Status | Features |
 | -- | -- | -- |
-| [Release 1 — Connected home](../releases/release-1/index.md) | in progress | 1 Active · 2 Closed |
+| [Release 1 — Connected home and backend runtime](../releases/release-1/index.md) | in progress | 4 New · 3 Closed |
 
 ## Backlog
 
@@ -37,7 +37,7 @@ Features with no Iteration, by State and epic.
 
 | Epic | Features |
 | -- | -- |
-| [E1 — Backend foundation](epics/E1-backend-foundation/index.md) | [F1.1](epics/E1-backend-foundation/F1.1-dependencies-and-entry.md), [F1.2](epics/E1-backend-foundation/F1.2-settings-and-runtime.md), [F1.3](epics/E1-backend-foundation/F1.3-api-contract.md), [F1.4](epics/E1-backend-foundation/F1.4-apollo-db.md), [F1.5](epics/E1-backend-foundation/F1.5-beets-actor.md), [F1.6](epics/E1-backend-foundation/F1.6-jobs-and-events.md), [F1.7](epics/E1-backend-foundation/F1.7-status-and-capabilities.md), [F1.8](epics/E1-backend-foundation/F1.8-audit-and-trash.md), [F1.9](epics/E1-backend-foundation/F1.9-harness-and-guardrails.md) |
+| [E1 — Backend foundation](epics/E1-backend-foundation/index.md) | [F1.4](epics/E1-backend-foundation/F1.4-apollo-db.md), [F1.5](epics/E1-backend-foundation/F1.5-beets-actor.md), [F1.6](epics/E1-backend-foundation/F1.6-jobs-and-events.md), [F1.7](epics/E1-backend-foundation/F1.7-status-and-capabilities.md), [F1.8](epics/E1-backend-foundation/F1.8-audit-and-trash.md) |
 | [E2 — Frontend foundation](epics/E2-frontend-foundation/index.md) | [F2.2](epics/E2-frontend-foundation/F2.2-generated-client.md), [F2.3](epics/E2-frontend-foundation/F2.3-live-state.md), [F2.5](epics/E2-frontend-foundation/F2.5-shell-and-routes.md), [F2.6](epics/E2-frontend-foundation/F2.6-frontend-guardrails.md) |
 | [E3 — ngkit primitives apollo needs](epics/E3-ngkit-primitives/index.md) | [F3.1](epics/E3-ngkit-primitives/F3.1-overlays.md), [F3.2](epics/E3-ngkit-primitives/F3.2-form-controls.md), [F3.3](epics/E3-ngkit-primitives/F3.3-feedback.md), [F3.4](epics/E3-ngkit-primitives/F3.4-toolbar-and-selection.md), [F3.5](epics/E3-ngkit-primitives/F3.5-data-grid.md), [F3.6](epics/E3-ngkit-primitives/F3.6-command-palette.md), [F3.7](epics/E3-ngkit-primitives/F3.7-file-drop.md) |
 | [E4 — Shared domain components](epics/E4-shared-domain-components/index.md) | [F4.1](epics/E4-shared-domain-components/F4.1-media-editor.md), [F4.2](epics/E4-shared-domain-components/F4.2-track-workspace.md), [F4.3](epics/E4-shared-domain-components/F4.3-dry-run-flow.md), [F4.4](epics/E4-shared-domain-components/F4.4-job-progress.md), [F4.5](epics/E4-shared-domain-components/F4.5-artwork-picker.md), [F4.6](epics/E4-shared-domain-components/F4.6-facet-view.md), [F4.7](epics/E4-shared-domain-components/F4.7-bulk-edit-panel.md), [F4.8](epics/E4-shared-domain-components/F4.8-formatting.md) |

@@ -12,8 +12,8 @@ Jump to: [E1–E10](#e1e10) · [E11–E20](#e11e20)
 
 | Epic | State | Features | Iterations |
 | -- | -- | -- | -- |
-| [E1 — Backend foundation](E1-backend-foundation/index.md) | New | 9 New | — |
-| [E2 — Frontend foundation](E2-frontend-foundation/index.md) | Active | 1 Active · 4 New · 2 Closed | release-1 |
+| [E1 — Backend foundation](E1-backend-foundation/index.md) | New | 9 New | release-1 |
+| [E2 — Frontend foundation](E2-frontend-foundation/index.md) | Active | 4 New · 3 Closed | release-1 |
 | [E3 — ngkit primitives apollo needs](E3-ngkit-primitives/index.md) | New | 7 New | — |
 | [E4 — Shared domain components](E4-shared-domain-components/index.md) | New | 8 New | — |
 | [E5 — Library browse](E5-library-browse/index.md) | New | 6 New | — |
