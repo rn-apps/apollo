@@ -1,16 +1,36 @@
-<main>
-  <h1>{{ title }}</h1>
-  @if (page(); as page) {
-    <p data-testid="items">
-      API connected: {{ page.items.length }} items (page size
-      {{ page.pageSize }}).
-    </p>
-  }
-  @if (error(); as message) {
-    <p data-testid="error">API error: {{ message }}</p>
-  }
-  @if (!page() && !error()) {
-    <p>Calling the API…</p>
-  }
+<main
+  class="flex min-h-dvh flex-col items-center justify-center gap-6 bg-surface-0 p-6 text-fg">
+  <header class="flex items-center gap-3">
+    <img src="icon.svg" alt="" width="48" height="48" />
+    <h1 class="text-3xl font-semibold tracking-tight">Apollo</h1>
+  </header>
+  <section
+    class="flex w-full max-w-sm flex-col items-center gap-4 rounded-lg border border-border bg-surface-1 p-6">
+    @switch (state()) {
+      @case ('connecting') {
+        <p data-testid="api-status" role="status" class="text-muted">
+          Connecting…
+        </p>
+      }
+      @case ('connected') {
+        <p data-testid="api-status" role="status" class="text-success">
+          API connected
+        </p>
+      }
+      @case ('unavailable') {
+        <p data-testid="api-status" role="status" class="text-danger">
+          API unavailable
+        </p>
+        <button
+          rnfButton
+          type="button"
+          variant="primary"
+          data-testid="retry"
+          (click)="retry()">
+          Retry
+        </button>
+      }
+    }
+  </section>
 </main>
 <router-outlet></router-outlet>

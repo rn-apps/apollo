@@ -15,7 +15,7 @@
 | [F2.4 — apollo theme over ngkit tokens](F2.4-theme.md) | Active | release-1 | 1 Active |
 | [F2.5 — Shell, navigation, routes and URL state](F2.5-shell-and-routes.md) | New | — | 4 New |
 | [F2.6 — Frontend layering lint](F2.6-frontend-guardrails.md) | New | — | 1 New |
-| [F2.7 — Branded home with a live API check](F2.7-connected-home.md) | New | release-1 | 1 New |
+| [F2.7 — Branded home with a live API check](F2.7-connected-home.md) | Closed | release-1 | 1 Closed |
 
 <!-- END derived features -->
 
