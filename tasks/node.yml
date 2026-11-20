@@ -50,6 +50,8 @@ tasks:
         --deny 'AGPL'
         --deny 'AGPL-*'
         --deny 'UNKNOWN'
+        --ignore 'mutagen'
+        --ignore 'Unidecode'
 
   test:
     desc: Test the frontend workspace with Nx.

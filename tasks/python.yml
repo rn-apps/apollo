@@ -52,6 +52,8 @@ tasks:
         --deny 'AGPL'
         --deny 'AGPL-*'
         --deny 'UNKNOWN'
+        --ignore 'mutagen'
+        --ignore 'Unidecode'
         --ignore 'api'
         --ignore 'apollo'
         --ignore 'apollo-api'

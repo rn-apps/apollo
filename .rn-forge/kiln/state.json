@@ -408,14 +408,14 @@
     },
     "tasks/node.yml": {
       "begin_marker": null,
-      "content_hash": "fa5775f978ed15dd303a13aceac059dc8b05fd75afb2393e1164c45e47b80678",
+      "content_hash": "4b470263384b4ac2dfdf45bd9d34b6276020bf57a8b5c0f75086fd5c01779237",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/node.yml"
     },
     "tasks/python.yml": {
       "begin_marker": null,
-      "content_hash": "fefbc5f449adbf4ab871d3064cc3230bd9ec36c4f7e4087318d7a446eb4a4b2e",
+      "content_hash": "a9affd1bce0b1b80f0c44aa7692f682de6f5f1ba7bc12211a379e548b3021a7b",
       "end_marker": null,
       "kind": "managed",
       "path": "tasks/python.yml"
@@ -450,7 +450,7 @@
     }
   },
   "metadata": {
-    "config_hash": "fde5d588c9c1dda04af43239f1d738f19eb19afce1b1c43f15e2e2f2b2ddbc2e",
+    "config_hash": "fb0664dcae739c10bac66649f6dd537f93fc7a11e9dd582bdc5d1839bf5ab08b",
     "config_provenance": {
       "archetype.python-web-app.api_dir": {
         "layer": "defaults",

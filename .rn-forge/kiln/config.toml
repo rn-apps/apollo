@@ -159,3 +159,13 @@ docs = []
 # `ci.yml` and the check tasks on `kiln apply`.
 # Default: {}.
 [ci.checks]
+licenses = { deny = [
+    "GPL",
+    "GPL-*",
+    "AGPL",
+    "AGPL-*",
+    "UNKNOWN",
+], ignore = [
+    "mutagen",
+    "Unidecode",
+] }
