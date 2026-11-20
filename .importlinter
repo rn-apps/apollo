@@ -37,3 +37,17 @@ forbidden_modules =
     django
 allow_indirect_imports = False
 # END rn-forge kiln
+
+[importlinter:contract:layers]
+name = apollo_api is layered one way (ADR-0019)
+type = layers
+containers =
+    apollo_api
+layers =
+    routes
+    (jobs)
+    (workflows)
+    (proposals) | (validation) | (apple)
+    (index)
+    (media)
+    platform

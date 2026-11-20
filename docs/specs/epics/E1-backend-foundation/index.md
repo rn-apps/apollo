@@ -17,7 +17,7 @@
 | [F1.6 — Job runtime and event stream](F1.6-jobs-and-events.md) | New | — | 4 New |
 | [F1.7 — Status, tools and capabilities](F1.7-status-and-capabilities.md) | New | — | 2 New |
 | [F1.8 — Audit, trash and undo core](F1.8-audit-and-trash.md) | New | — | 2 New |
-| [F1.9 — Test harness and layering guardrails](F1.9-harness-and-guardrails.md) | New | release-1 | 2 New |
+| [F1.9 — Test harness and layering guardrails](F1.9-harness-and-guardrails.md) | Active | release-1 | 1 New · 1 Closed |
 
 <!-- END derived features -->
 
