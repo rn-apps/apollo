@@ -1,12 +1,13 @@
-# Release 1 — Connected home
+# Release 1 — Connected home and backend runtime
 
 |  |  |
 | -- | -- |
 | **Status** | in progress |
 | **Start Date** | 2026-11-18 |
 
-The first local checkpoint is a themed Apollo home with a logo and a live
-connection to the scaffold API.
+Two local checkpoints: a themed Apollo home with a logo and a live connection to
+the scaffold API, then the backend runtime (dependencies, settings, the API
+contract and the test harness).
 
 ## Entry criteria
 
@@ -18,8 +19,12 @@ connection to the scaffold API.
 
 | Feature | Epic | State |
 | -- | -- | -- |
+| [F1.1 — Dependencies, entry point and CI tools](../../specs/epics/E1-backend-foundation/F1.1-dependencies-and-entry.md) | E1 | New |
+| [F1.2 — Settings, runtime paths and logging](../../specs/epics/E1-backend-foundation/F1.2-settings-and-runtime.md) | E1 | New |
+| [F1.3 — Errors, paging and the API contract](../../specs/epics/E1-backend-foundation/F1.3-api-contract.md) | E1 | New |
+| [F1.9 — Test harness and layering guardrails](../../specs/epics/E1-backend-foundation/F1.9-harness-and-guardrails.md) | E1 | New |
 | [F2.1 — Web dependencies on current ngkit](../../specs/epics/E2-frontend-foundation/F2.1-web-dependencies.md) | E2 | Closed |
-| [F2.4 — apollo theme over ngkit tokens](../../specs/epics/E2-frontend-foundation/F2.4-theme.md) | E2 | Active |
+| [F2.4 — apollo theme over ngkit tokens](../../specs/epics/E2-frontend-foundation/F2.4-theme.md) | E2 | Closed |
 | [F2.7 — Branded home with a live API check](../../specs/epics/E2-frontend-foundation/F2.7-connected-home.md) | E2 | Closed |
 
 <!-- END derived scope -->
@@ -35,19 +40,22 @@ None.
 
 ## Progress
 
-The ngkit dependency and token smoke test is closed. Verify the theme next, then
-walk through connection and recovery in the browser with the owner. The
-[foundation sequence](../../specs/index.md#foundation-sequence) picks up the
-backend runtime after this checkpoint.
+The connected home is closed: the owner walked through connection and recovery
+in the browser on 2026-11-19, and the palette check moved to F2.5. The backend
+runtime follows the
+[foundation sequence](../../specs/index.md#foundation-sequence): F1.1, F1.2,
+F1.3, then F1.9. Settle JSON field casing before F1.3.
 
 ## Commits
 
 ```sh
-git log --oneline -E --grep='[FS]2\.(1|4|7)(\.|[^0-9]|$)'
+git log --oneline -E --grep='([FS]2\.(1|4|7)|[FS]1\.(1|2|3|9))(\.|[^0-9]|$)'
 ```
 
 ## Exit criteria
 
 - All scoped stories meet their acceptance and `task validate` passes.
-- The owner reviews the rendered theme and verifies the live API connection, the
-  unavailable state and recovery through Retry.
+- The owner verifies the live API connection, the unavailable state and recovery
+  through Retry.
+- The owner starts the API against a temporary state directory and inspects its
+  runtime tree, log and problem responses.

@@ -8,15 +8,15 @@
 
 | Feature | State | Iteration | Stories |
 | -- | -- | -- | -- |
-| [F1.1 — Dependencies, entry point and CI tools](F1.1-dependencies-and-entry.md) | New | — | 3 New |
-| [F1.2 — Settings, runtime paths and logging](F1.2-settings-and-runtime.md) | New | — | 2 New |
-| [F1.3 — Errors, paging and the API contract](F1.3-api-contract.md) | New | — | 2 New |
+| [F1.1 — Dependencies, entry point and CI tools](F1.1-dependencies-and-entry.md) | New | release-1 | 3 New |
+| [F1.2 — Settings, runtime paths and logging](F1.2-settings-and-runtime.md) | New | release-1 | 2 New |
+| [F1.3 — Errors, paging and the API contract](F1.3-api-contract.md) | New | release-1 | 2 New |
 | [F1.4 — apollo.db](F1.4-apollo-db.md) | New | — | 2 New |
 | [F1.5 — The beets actor, projections, paging and snapshots](F1.5-beets-actor.md) | New | — | 4 New |
 | [F1.6 — Job runtime and event stream](F1.6-jobs-and-events.md) | New | — | 4 New |
 | [F1.7 — Status, tools and capabilities](F1.7-status-and-capabilities.md) | New | — | 2 New |
 | [F1.8 — Audit, trash and undo core](F1.8-audit-and-trash.md) | New | — | 2 New |
-| [F1.9 — Test harness and layering guardrails](F1.9-harness-and-guardrails.md) | New | — | 2 New |
+| [F1.9 — Test harness and layering guardrails](F1.9-harness-and-guardrails.md) | New | release-1 | 2 New |
 
 <!-- END derived features -->
 
