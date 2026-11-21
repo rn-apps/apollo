@@ -170,8 +170,8 @@ release:
 
 ```toml
 dependencies = [
-  "rn-forge-commons>=0.10.0,<0.11",
-  "rn-forge-cli>=0.2.0,<0.3",
+  "rn-forge-commons>=0.10.1,<0.11",
+  "rn-forge-cli>=0.2.1,<0.3",
 ]
 ```
 

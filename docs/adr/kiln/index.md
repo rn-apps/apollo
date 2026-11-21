@@ -10,6 +10,8 @@ files: an edit here is drift, and `task lint` fails on it.
 | -- | -- |
 | [ARCH-0001](ARCH-0001.md) | Dependencies point inward; I/O lives at the edges |
 | [ARCH-0002](ARCH-0002.md) | Errors, settings and logs each cross one boundary |
+| [ARCH-0004](ARCH-0004.md) | HTTP is an adapter at the edge |
+| [ARCH-0005](ARCH-0005.md) | The API schema is the contract between backend and frontend |
 
 ## Deviating
 

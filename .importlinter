@@ -49,6 +49,20 @@ layers =
     (main) : (commands) : (product) : (app) : (http)
     (services) | (adapters)
     (domain)
+
+; kiln's architecture baseline, ARCH-0004: the web framework stops at the entry
+; points. `.**` matches the modules below each package, so this holds before the
+; package exists.
+[importlinter:contract:framework-stays-at-the-edge]
+name = apollo_api's domain and services import no web framework (ARCH-0004)
+type = forbidden
+source_modules =
+    apollo_api.domain.**
+    apollo_api.services.**
+forbidden_modules =
+    fastapi
+    starlette
+allow_indirect_imports = False
 # END rn-forge kiln
 
 [importlinter:contract:layers]

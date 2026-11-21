@@ -90,7 +90,7 @@
     },
     ".importlinter#rn-forge kiln": {
       "begin_marker": "# BEGIN rn-forge kiln",
-      "content_hash": "86f2ad7daa801403300db5cd6ed583e19b8b355b6ace9dcf377e67fae59118ed",
+      "content_hash": "93d7b283bd267784713b03381569ff6a7100db0561a8426286b4873dd586703e",
       "end_marker": "# END rn-forge kiln",
       "key_paths": null,
       "kind": "block",
@@ -122,7 +122,7 @@
     },
     ".rn-forge/kiln/standard.md": {
       "begin_marker": null,
-      "content_hash": "84a26defbeacca95e5fb9a2635f3a967c7b0283e27e200e3b542410a8ab543fd",
+      "content_hash": "505cbc227adc4c849eb4dec1bc1b3aefbdfeb5c44fa6dbbc0c3302e1cefcb2a5",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -154,7 +154,7 @@
     },
     "Taskfile.yml": {
       "begin_marker": null,
-      "content_hash": "4cc6500735eb6088e65f2bf52e71d44a45570e7c5de0938a2c130f4425e37470",
+      "content_hash": "c32607f5601cc81cb1ba37eba8c6edf4310f64608f9a16312b463b64b41c698c",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -264,9 +264,25 @@
       "kind": "managed",
       "path": "docs/adr/kiln/ARCH-0002.md"
     },
+    "docs/adr/kiln/ARCH-0004.md": {
+      "begin_marker": null,
+      "content_hash": "3bfe30a06c158280e1646139889f9c6265af08c434d67050391bf683c9ba6405",
+      "end_marker": null,
+      "key_paths": null,
+      "kind": "managed",
+      "path": "docs/adr/kiln/ARCH-0004.md"
+    },
+    "docs/adr/kiln/ARCH-0005.md": {
+      "begin_marker": null,
+      "content_hash": "72c13d5bf091e86fc0f5c876f358337f1f09637463674d8556646afc77b9e686",
+      "end_marker": null,
+      "key_paths": null,
+      "kind": "managed",
+      "path": "docs/adr/kiln/ARCH-0005.md"
+    },
     "docs/adr/kiln/index.md": {
       "begin_marker": null,
-      "content_hash": "7ceacea5af80d2a9f563e06330f9c3e0e7894350d014820537cd0a9040567ba4",
+      "content_hash": "d0eae0ee39567e56b1ad1d0a83d665a4407082d7bb9f57feb1fbf7a16e95d498",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -442,7 +458,7 @@
     },
     "tasks/ci.yml": {
       "begin_marker": null,
-      "content_hash": "7327a51627f4d159c66a5761237aaa81f11fc140e3e12c4e8fc0c5a682f0cbd0",
+      "content_hash": "06cd244a270d851b2471fc777cd68bf2f8422f1c17fec4af30dc4cb351d15596",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -514,7 +530,7 @@
     }
   },
   "metadata": {
-    "config_hash": "fcf51f3e4c2f35e807d987fb11ee9ac01fabb4bb80a6e6b4b546813b214f768e",
+    "config_hash": "b54a1b84ede2672bf39b1d16661c051209c5157ee38d3e2ea0608f957cb186a4",
     "config_provenance": {
       "archetype.python-web-app.api_dir": {
         "layer": "defaults",
@@ -580,7 +596,7 @@
       },
       "kiln.ref": {
         "layer": "repo",
-        "value": "3a11258b9a09cefb9f4818a74317708564798e4c"
+        "value": "116aa35c85f4fa0828864010e992685f4bd5762a"
       },
       "repository.archetype": {
         "layer": "flags",
