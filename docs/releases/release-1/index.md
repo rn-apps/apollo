@@ -44,7 +44,7 @@ The connected home is closed: the owner walked through connection and recovery
 in the browser on 2026-11-19, and the palette check moved to F2.5. The backend
 runtime follows the
 [foundation sequence](../../specs/index.md#foundation-sequence): F1.1, F1.2,
-F1.3, then F1.9. Settle JSON field casing before F1.3.
+F1.3, then F1.9.
 
 ## Commits
 

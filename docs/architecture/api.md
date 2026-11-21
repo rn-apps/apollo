@@ -35,7 +35,7 @@ The kit adds `GET /livez` and `GET /readyz` at the root, outside `/v1`.
 `/health` and the `/api/v1` prefix are gone. Status refresh is
 `POST /status/refresh` (F1.7); the prune and empty-trash routes are E14's.
 
-Long operations return 202 with `job_id` and run as jobs. Synchronous exceptions
+Long operations return 202 with `jobId` and run as jobs. Synchronous exceptions
 are the inbox path-backed bulk edits ([ADR-0018](../adr/ADR-0018.md)) and
 single-item tag edits.
 
@@ -75,15 +75,18 @@ matches on `type` through ngkit's problem helpers.
 
 Offset paging exists because the virtual grid needs the full height to scroll
 and seek ([ADR-0020](../adr/ADR-0020.md)). The kit's `keyset` serves SQLAlchemy
-selects only. This is apollo's one departure from the kit's API rules. The query
-parameter names and the JSON field casing of offset responses are open: see E1.
+selects only. This is apollo's one departure from the kit's API rules. Offset
+responses follow the API's casing rule like every body: camelCase on the wire,
+snake_case in Python, through `rn_forge.web.WireModel`. Beets fields are
+camelCased too, for example `mb_artistid` is `mbArtistid` (pykit rule
+`casing.response-bodies-are-camel-case`).
 
 ## Artwork
 
 Art is served by `GET /tracks/{id}/artwork` with a content type, a strong `ETag`
 and thumbnails, and is never inlined in a list. The track DTO carries
-`has_artwork` as `bool | None`. `GET /tracks/{id}?artwork=true` is the one
-opt-in for inline bytes ([ADR-0011](../adr/ADR-0011.md)).
+`hasArtwork` as `bool | None`. `GET /tracks/{id}?artwork=true` is the one opt-in
+for inline bytes ([ADR-0011](../adr/ADR-0011.md)).
 
 ## Status
 

@@ -58,10 +58,8 @@ database. Shape: [backend architecture](../../../architecture/backend.md).
 - `task validate` passes when the story closes.
 - No file kiln generated is edited. Config changes go through
   `.rn-forge/kiln/config.toml` and `task kiln:apply`.
-
-## Open questions
-
-- **JSON field casing.** Should response bodies use snake_case, matching beets
-  field names (`albumartist`, `mb_artistid`), or camelCase, matching the kit's
-  query parameters (`pageSize`, `pageToken`)? The recommendation is snake_case
-  for bodies and the kit's names for paging parameters. It blocks F1.3.
+- Response bodies are camelCase on the wire and snake_case in Python (owner,
+  2026-11-20; pykit rule `casing.response-bodies-are-camel-case`). Every model
+  that crosses the wire derives from `rn_forge.web.WireModel`, so beets fields
+  are camelCased too (`mb_artistid` becomes `mbArtistid`), and offset pages
+  follow the same rule.

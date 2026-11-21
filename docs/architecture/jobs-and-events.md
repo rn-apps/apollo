@@ -108,7 +108,7 @@ resources lives in the client, in one table.
    each track's before, after, diff and any relocation, with source mtimes.
 1. The user reviews the diff in the dry-run flow and confirms.
 1. The panel sends the same request with `dry_run: false` and the reviewed
-   mtimes. The route submits a `bulk_edit` job and returns 202 with `job_id`.
+   mtimes. The route submits a `bulk_edit` job and returns 202 with `jobId`.
 1. The worker claims the job. For each track the handler writes the audit entry
    first (one shared `batch_id`), then applies the tag write and any move on
    the actor ([ADR-0009](../adr/ADR-0009.md)). A track whose mtime changed
