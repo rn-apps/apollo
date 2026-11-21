@@ -14,14 +14,12 @@ from fastapi import FastAPI
 from rn_forge.commons import AppLogger
 from rn_forge.fastapi import AppConfig, FastApiApp
 from rn_forge.fastapi.problem import log_server_errors
-from rn_forge.web import NOT_FOUND, default_registry
+from rn_forge.web import ProblemRegistry, default_registry
 
-from apollo_api.errors import ItemNotFound
+from apollo_api.platform.errors import ApolloError
 from apollo_api.platform.runtime import prepare
 from apollo_api.platform.settings import get_settings
 from apollo_api.routes import router
-
-registry = default_registry().register(ItemNotFound, NOT_FOUND)
 
 _LOG = AppLogger.get_logger("apollo")
 
@@ -46,11 +44,16 @@ async def lifespan(_app: FastAPI) -> AsyncGenerator[None]:
     yield
 
 
+def build_registry() -> ProblemRegistry:
+    """Map every `ApolloError` to its problem; call after all error modules import."""
+    return default_registry(type_base="/problems/").register_hierarchy(ApolloError)
+
+
 def create_app() -> FastApiApp:
     """Build the application, logging 5xx problems under the `apollo` logger."""
     return FastApiApp(
         AppConfig(
-            registry=registry,
+            registry=build_registry(),
             log=log_server_errors(AppLogger.get_logger("apollo.http")),
         ),
         routers=(router,),

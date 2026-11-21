@@ -11,7 +11,7 @@
 | -- | -- | -- | -- |
 | [F1.1 — Dependencies, entry point and CI tools](F1.1-dependencies-and-entry.md) | Closed | release-1 | 4 Closed |
 | [F1.2 — Settings, runtime paths and logging](F1.2-settings-and-runtime.md) | Closed | release-1 | 2 Closed |
-| [F1.3 — Errors, paging and the API contract](F1.3-api-contract.md) | New | release-1 | 2 New |
+| [F1.3 — Errors, paging and the API contract](F1.3-api-contract.md) | Active | release-1 | 1 New · 1 Closed |
 | [F1.4 — apollo.db](F1.4-apollo-db.md) | New | — | 2 New |
 | [F1.5 — The beets actor, projections, paging and snapshots](F1.5-beets-actor.md) | New | — | 4 New |
 | [F1.6 — Job runtime and event stream](F1.6-jobs-and-events.md) | New | — | 4 New |

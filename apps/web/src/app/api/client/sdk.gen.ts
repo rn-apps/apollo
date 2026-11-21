@@ -45,6 +45,6 @@ export const itemsList = <ThrowOnError extends boolean = false>(options?: Option
 /**
  * Get Item
  *
- * Fail with ``ItemNotFound``: the starter holds no items.
+ * Fail with ``NotFoundError``: the starter holds no items.
  */
 export const itemsGet = <ThrowOnError extends boolean = false>(options: Options<ItemsGetData, ThrowOnError>): RequestResult<ItemsGetResponses, ItemsGetErrors, ThrowOnError> => (options.client ?? client).get<ItemsGetResponses, ItemsGetErrors, ThrowOnError>({ url: '/v1/items/{item_id}', ...options });

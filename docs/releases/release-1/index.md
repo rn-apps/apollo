@@ -21,7 +21,7 @@ contract and the test harness).
 | -- | -- | -- |
 | [F1.1 — Dependencies, entry point and CI tools](../../specs/epics/E1-backend-foundation/F1.1-dependencies-and-entry.md) | E1 | Closed |
 | [F1.2 — Settings, runtime paths and logging](../../specs/epics/E1-backend-foundation/F1.2-settings-and-runtime.md) | E1 | Closed |
-| [F1.3 — Errors, paging and the API contract](../../specs/epics/E1-backend-foundation/F1.3-api-contract.md) | E1 | New |
+| [F1.3 — Errors, paging and the API contract](../../specs/epics/E1-backend-foundation/F1.3-api-contract.md) | E1 | Active |
 | [F1.9 — Test harness and layering guardrails](../../specs/epics/E1-backend-foundation/F1.9-harness-and-guardrails.md) | E1 | Closed |
 | [F2.1 — Web dependencies on current ngkit](../../specs/epics/E2-frontend-foundation/F2.1-web-dependencies.md) | E2 | Closed |
 | [F2.4 — apollo theme over ngkit tokens](../../specs/epics/E2-frontend-foundation/F2.4-theme.md) | E2 | Closed |

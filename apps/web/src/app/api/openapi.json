@@ -810,7 +810,7 @@
     },
     "/v1/items/{item_id}": {
       "get": {
-        "description": "Fail with ``ItemNotFound``: the starter holds no items.",
+        "description": "Fail with ``NotFoundError``: the starter holds no items.",
         "operationId": "itemsGet",
         "parameters": [
           {
