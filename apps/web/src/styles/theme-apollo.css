@@ -1,0 +1,48 @@
+/* Token values taken from rn_backup/apollo/apps/web/src/app.css */
+:root {
+  color-scheme: dark;
+  --rnf-surface-0: #0e1016;
+  --rnf-surface-1: #171a23;
+  --rnf-surface-2: #1d2230;
+  --rnf-surface-3: #252b3a;
+  --rnf-text: #eef1f7;
+  --rnf-text-muted: #a9b1c2;
+  --rnf-text-subtle: #8b93a6;
+  --rnf-border: #262b38;
+  --rnf-border-strong: #313a4e;
+  --rnf-focus: #ff5c7a;
+  --rnf-accent: #ff5c7a;
+  --rnf-accent-muted: #93364b;
+  --rnf-on-accent: #0e1016;
+  --rnf-neutral: #8b93a6;
+  --rnf-info: #4fd1c5;
+  --rnf-success: #4ade80;
+  --rnf-warning: #f0a35e;
+  --rnf-danger: #f4743e;
+  --rnf-radius-control: 6px;
+  --rnf-radius: 10px;
+  --rnf-radius-lg: 12px;
+  --rnf-radius-pill: 99px;
+  --rnf-font-ui: 'Inter Tight', system-ui, sans-serif;
+  --rnf-font-data: 'JetBrains Mono', ui-monospace, monospace;
+  --rnf-text-xs: 0.75rem;
+  --rnf-text-sm: 0.8125rem;
+  --rnf-text-md: 0.875rem;
+  --rnf-control-sm: 1.75rem;
+  --rnf-control-md: 2.25rem;
+  --rnf-duration-fast: 120ms;
+  --rnf-duration: 200ms;
+  --rnf-ease: cubic-bezier(0.2, 0, 0, 1);
+  --rnf-shadow-raised: 0 1px 2px rgb(0 0 0 / 0.16), 0 1px 3px rgb(0 0 0 / 0.12);
+  --rnf-shadow-overlay:
+    0 8px 24px rgb(0 0 0 / 0.24), 0 2px 6px rgb(0 0 0 / 0.16);
+  --apollo-rail-bg: #0a0c11;
+  --apollo-rail-w: 66px;
+  --apollo-sidebar-w: 208px;
+  --apollo-row-h: 56px;
+  --apollo-row-h-compact: 44px;
+  --apollo-text-faint: #6a7182;
+  --apollo-brand-2: #9d5cff;
+  --apollo-hero-1: #1c3d63;
+  --apollo-hero-2: #472a68;
+}

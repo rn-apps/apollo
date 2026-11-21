@@ -3,7 +3,7 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
 
 describe('App', () => {
@@ -19,34 +19,95 @@ describe('App', () => {
 
   afterEach(() => http.verify());
 
-  it('renders the page the API returns', async () => {
+  const root = (fixture: ComponentFixture<App>) =>
+    fixture.nativeElement as HTMLElement;
+  const status = (fixture: ComponentFixture<App>) =>
+    root(fixture)
+      .querySelector('[data-testid="api-status"]')
+      ?.textContent?.trim();
+  const retryButton = (fixture: ComponentFixture<App>) =>
+    root(fixture).querySelector('[data-testid="retry"]');
+  const expectLivez = () => {
+    const req = http.expectOne('/livez');
+    expect(req.request.method).toBe('GET');
+    return req;
+  };
+
+  it('S2.7.1: shows the Apollo brand', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
-    http.expectOne('/v1/items').flush({ pageSize: 20, items: [] });
+    expectLivez().flush({ status: 'pass' });
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('apollo');
-    expect(
-      compiled.querySelector('[data-testid="items"]')?.textContent,
-    ).toContain('page size 20');
+    expect(root(fixture).querySelector('h1')?.textContent?.trim()).toBe(
+      'Apollo',
+    );
+    expect(root(fixture).querySelector('img')?.getAttribute('src')).toBe(
+      'icon.svg',
+    );
   });
 
-  it('renders the problem detail when the API fails', async () => {
+  it('S2.7.1: reflects API reachability — Connecting before the response', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
-    http.expectOne('/v1/items').flush(
-      {
-        type: 'about:blank',
-        title: 'Not Found',
-        status: 404,
-        detail: 'gone',
-      },
-      { status: 404, statusText: 'Not Found' },
+    const req = expectLivez();
+    expect(status(fixture)).toBe('Connecting…');
+    expect(retryButton(fixture)).toBeNull();
+    req.flush({ status: 'pass' });
+    await fixture.whenStable();
+  });
+
+  it('S2.7.1: reflects API reachability — connected on 200 pass', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    expectLivez().flush({ status: 'pass' });
+    await fixture.whenStable();
+    expect(status(fixture)).toBe('API connected');
+    expect(retryButton(fixture)).toBeNull();
+  });
+
+  it('S2.7.1: reflects API reachability — unavailable on a request failure', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    expectLivez().error(new ProgressEvent('error'));
+    await fixture.whenStable();
+    expect(status(fixture)).toBe('API unavailable');
+    const retry = retryButton(fixture);
+    expect(retry).not.toBeNull();
+    expect(retry?.classList.contains('rnf-button')).toBe(true);
+    expect(retry?.getAttribute('data-variant')).toBe('primary');
+  });
+
+  it('S2.7.1: reflects API reachability — unavailable on a 503', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    expectLivez().flush(
+      { status: 'fail' },
+      { status: 503, statusText: 'Service Unavailable' },
     );
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(
-      compiled.querySelector('[data-testid="error"]')?.textContent,
-    ).toContain('gone');
+    expect(status(fixture)).toBe('API unavailable');
+  });
+
+  it('S2.7.1: reflects API reachability — unavailable on an unexpected payload', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    expectLivez().flush({ status: 'ok' });
+    await fixture.whenStable();
+    expect(status(fixture)).toBe('API unavailable');
+  });
+
+  it('S2.7.1: reflects API reachability — Retry recovers', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    expectLivez().error(new ProgressEvent('error'));
+    await fixture.whenStable();
+    (retryButton(fixture) as HTMLButtonElement).click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(status(fixture)).toBe('Connecting…');
+    expectLivez().flush({ status: 'pass' });
+    await fixture.whenStable();
+    expect(status(fixture)).toBe('API connected');
+    expect(retryButton(fixture)).toBeNull();
   });
 });

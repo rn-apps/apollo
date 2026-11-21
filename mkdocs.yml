@@ -63,6 +63,12 @@ nav:
   - Home: index.md
   - Architecture:
       - architecture/index.md
+      - Backend: architecture/backend.md
+      - Actor and caches: architecture/actor-and-caches.md
+      - Jobs and events: architecture/jobs-and-events.md
+      - Data: architecture/data.md
+      - API: architecture/api.md
+      - Frontend: architecture/frontend.md
   - Guides:
       - guides/index.md
       - Development: guides/development.md
@@ -75,6 +81,122 @@ nav:
   - Specs:
       - specs/index.md
       - Epics: specs/epics/index.md
+      - E1–E10:
+          - E1 — Backend foundation:
+              - specs/epics/E1-backend-foundation/index.md
+              - F1.1 — Dependencies, entry point and CI tools: specs/epics/E1-backend-foundation/F1.1-dependencies-and-entry.md
+              - F1.2 — Settings, runtime paths and logging: specs/epics/E1-backend-foundation/F1.2-settings-and-runtime.md
+              - F1.3 — Errors, paging and the API contract: specs/epics/E1-backend-foundation/F1.3-api-contract.md
+              - F1.4 — apollo.db: specs/epics/E1-backend-foundation/F1.4-apollo-db.md
+              - F1.5 — The beets actor, projections, paging and snapshots: specs/epics/E1-backend-foundation/F1.5-beets-actor.md
+              - F1.6 — Job runtime and event stream: specs/epics/E1-backend-foundation/F1.6-jobs-and-events.md
+              - F1.7 — Status, tools and capabilities: specs/epics/E1-backend-foundation/F1.7-status-and-capabilities.md
+              - F1.8 — Audit, trash and undo core: specs/epics/E1-backend-foundation/F1.8-audit-and-trash.md
+              - F1.9 — Test harness and layering guardrails: specs/epics/E1-backend-foundation/F1.9-harness-and-guardrails.md
+          - E2 — Frontend foundation:
+              - specs/epics/E2-frontend-foundation/index.md
+              - F2.1 — Web dependencies on current ngkit: specs/epics/E2-frontend-foundation/F2.1-web-dependencies.md
+              - F2.2 — Generated API client: specs/epics/E2-frontend-foundation/F2.2-generated-client.md
+              - 'F2.3 — Live state: event stream, status store and invalidation': specs/epics/E2-frontend-foundation/F2.3-live-state.md
+              - F2.4 — apollo theme over ngkit tokens: specs/epics/E2-frontend-foundation/F2.4-theme.md
+              - F2.5 — Shell, navigation, routes and URL state: specs/epics/E2-frontend-foundation/F2.5-shell-and-routes.md
+              - F2.6 — Frontend layering lint: specs/epics/E2-frontend-foundation/F2.6-frontend-guardrails.md
+              - F2.7 — Branded home with a live API check: specs/epics/E2-frontend-foundation/F2.7-connected-home.md
+          - E3 — ngkit primitives apollo needs:
+              - specs/epics/E3-ngkit-primitives/index.md
+              - 'F3.1 — Overlays: modal, side panel and confirm': specs/epics/E3-ngkit-primitives/F3.1-overlays.md
+              - F3.2 — Form controls: specs/epics/E3-ngkit-primitives/F3.2-form-controls.md
+              - 'F3.3 — Feedback: states, badges, toast and progress': specs/epics/E3-ngkit-primitives/F3.3-feedback.md
+              - F3.4 — Toolbar, selection chip and tabs: specs/epics/E3-ngkit-primitives/F3.4-toolbar-and-selection.md
+              - F3.5 — Virtual data grid: specs/epics/E3-ngkit-primitives/F3.5-data-grid.md
+              - F3.6 — Command palette: specs/epics/E3-ngkit-primitives/F3.6-command-palette.md
+              - F3.7 — File drop zone: specs/epics/E3-ngkit-primitives/F3.7-file-drop.md
+          - E4 — Shared domain components:
+              - specs/epics/E4-shared-domain-components/index.md
+              - F4.1 — Media editor side panel: specs/epics/E4-shared-domain-components/F4.1-media-editor.md
+              - F4.2 — Track workspace: specs/epics/E4-shared-domain-components/F4.2-track-workspace.md
+              - F4.3 — Dry-run flow: specs/epics/E4-shared-domain-components/F4.3-dry-run-flow.md
+              - F4.4 — Job progress: specs/epics/E4-shared-domain-components/F4.4-job-progress.md
+              - F4.5 — Artwork picker: specs/epics/E4-shared-domain-components/F4.5-artwork-picker.md
+              - F4.6 — Facet view: specs/epics/E4-shared-domain-components/F4.6-facet-view.md
+              - F4.7 — Bulk edit panel: specs/epics/E4-shared-domain-components/F4.7-bulk-edit-panel.md
+              - F4.8 — Formatting: specs/epics/E4-shared-domain-components/F4.8-formatting.md
+          - E5 — Library browse:
+              - specs/epics/E5-library-browse/index.md
+              - F5.1 — Songs grid: specs/epics/E5-library-browse/F5.1-songs-grid.md
+              - F5.2 — Search and fields: specs/epics/E5-library-browse/F5.2-search-and-fields.md
+              - F5.3 — Albums: specs/epics/E5-library-browse/F5.3-albums.md
+              - F5.4 — Artists, genres and composers: specs/epics/E5-library-browse/F5.4-facet-drilldowns.md
+              - F5.5 — Column manager: specs/epics/E5-library-browse/F5.5-column-manager.md
+              - F5.6 — Audio preview: specs/epics/E5-library-browse/F5.6-audio-preview.md
+          - E6 — Tag editing:
+              - specs/epics/E6-tag-editing/index.md
+              - F6.1 — Single track edit: specs/epics/E6-tag-editing/F6.1-single-track-edit.md
+              - F6.2 — Bulk edit: specs/epics/E6-tag-editing/F6.2-bulk-edit.md
+              - F6.3 — Common tags: specs/epics/E6-tag-editing/F6.3-common-tags.md
+              - F6.4 — Clean tags: specs/epics/E6-tag-editing/F6.4-clean-tags.md
+              - F6.5 — Identity editor: specs/epics/E6-tag-editing/F6.5-identity-editor.md
+              - F6.6 — Album edit: specs/epics/E6-tag-editing/F6.6-album-edit.md
+          - E7 — Artwork and annotations:
+              - specs/epics/E7-artwork-and-annotations/index.md
+              - F7.1 — Track artwork: specs/epics/E7-artwork-and-annotations/F7.1-track-artwork.md
+              - F7.2 — Album artwork: specs/epics/E7-artwork-and-annotations/F7.2-album-artwork.md
+              - F7.3 — Inbox artwork: specs/epics/E7-artwork-and-annotations/F7.3-inbox-artwork.md
+              - F7.4 — Artist annotations: specs/epics/E7-artwork-and-annotations/F7.4-artist-annotations.md
+              - F7.5 — Album annotations: specs/epics/E7-artwork-and-annotations/F7.5-album-annotations.md
+              - F7.6 — Orphans and relink: specs/epics/E7-artwork-and-annotations/F7.6-orphans-and-relink.md
+          - E8 — Inbox and intake:
+              - specs/epics/E8-inbox-and-intake/index.md
+              - F8.1 — Inbox listing: specs/epics/E8-inbox-and-intake/F8.1-inbox-listing.md
+              - F8.2 — Staged edits: specs/epics/E8-inbox-and-intake/F8.2-staged-edits.md
+              - F8.3 — Tag check gates: specs/epics/E8-inbox-and-intake/F8.3-tag-check-gates.md
+              - F8.4 — Promotion: specs/epics/E8-inbox-and-intake/F8.4-promotion.md
+              - F8.5 — External folder onboarding: specs/epics/E8-inbox-and-intake/F8.5-external-onboarding.md
+          - E9 — Downloads and proposals:
+              - specs/epics/E9-downloads-and-proposals/index.md
+              - F9.1 — Single download: specs/epics/E9-downloads-and-proposals/F9.1-single-download.md
+              - F9.2 — Playlist download: specs/epics/E9-downloads-and-proposals/F9.2-playlist-download.md
+              - F9.3 — URL list builder: specs/epics/E9-downloads-and-proposals/F9.3-url-list-builder.md
+              - F9.4 — Tag proposals: specs/epics/E9-downloads-and-proposals/F9.4-tag-proposals.md
+              - F9.5 — Accept proposals: specs/epics/E9-downloads-and-proposals/F9.5-accept-proposals.md
+          - E10 — Trim and replace:
+              - specs/epics/E10-trim-and-replace/index.md
+              - F10.1 — Trim: specs/epics/E10-trim-and-replace/F10.1-trim.md
+              - F10.2 — Replace: specs/epics/E10-trim-and-replace/F10.2-replace.md
+      - E11–E20:
+          - E11 — Checks and relocation:
+              - specs/epics/E11-checks-and-relocation/index.md
+              - F11.1 — Track checks cache: specs/epics/E11-checks-and-relocation/F11.1-track-checks-cache.md
+              - F11.2 — Errors page: specs/epics/E11-checks-and-relocation/F11.2-errors-page.md
+              - F11.3 — Recheck: specs/epics/E11-checks-and-relocation/F11.3-recheck.md
+              - F11.4 — Update tags from path: specs/epics/E11-checks-and-relocation/F11.4-update-tags-from-path.md
+              - F11.5 — Relocate plan and apply: specs/epics/E11-checks-and-relocation/F11.5-relocate-plan-apply.md
+          - E12 — Home, status and settings:
+              - specs/epics/E12-home-status-settings/index.md
+              - F12.1 — Home dashboard: specs/epics/E12-home-status-settings/F12.1-home-dashboard.md
+              - F12.2 — Health and capabilities: specs/epics/E12-home-status-settings/F12.2-health-and-capabilities.md
+              - F12.3 — Settings page: specs/epics/E12-home-status-settings/F12.3-settings-page.md
+          - E13 — Playlists and Apple Music:
+              - specs/epics/E13-playlists-and-apple-music/index.md
+              - F13.1 — Static playlists: specs/epics/E13-playlists-and-apple-music/F13.1-static-playlists.md
+              - F13.2 — Smart playlists: specs/epics/E13-playlists-and-apple-music/F13.2-smart-playlists.md
+              - F13.3 — Reorder: specs/epics/E13-playlists-and-apple-music/F13.3-reorder.md
+              - F13.4 — Export: specs/epics/E13-playlists-and-apple-music/F13.4-export.md
+              - F13.5 — Apple stats import: specs/epics/E13-playlists-and-apple-music/F13.5-apple-stats-import.md
+              - F13.6 — Playlist import job: specs/epics/E13-playlists-and-apple-music/F13.6-playlist-import-job.md
+              - F13.7 — Push to Music.app: specs/epics/E13-playlists-and-apple-music/F13.7-push-to-apple.md
+          - E14 — Audit and maintenance:
+              - specs/epics/E14-audit-and-maintenance/index.md
+              - F14.1 — Audit log: specs/epics/E14-audit-and-maintenance/F14.1-audit-log.md
+              - F14.2 — Batch undo: specs/epics/E14-audit-and-maintenance/F14.2-batch-undo.md
+              - F14.3 — History page: specs/epics/E14-audit-and-maintenance/F14.3-history-page.md
+              - F14.4 — Maintenance page: specs/epics/E14-audit-and-maintenance/F14.4-maintenance-page.md
+              - F14.5 — Prune and empty trash: specs/epics/E14-audit-and-maintenance/F14.5-prune-and-empty-trash.md
+          - E15 — Acceptance and cutover:
+              - specs/epics/E15-acceptance-and-cutover/index.md
+              - F15.1 — Acceptance gates on a copy: specs/epics/E15-acceptance-and-cutover/F15.1-gates-on-a-copy.md
+              - F15.2 — Gates on the real library: specs/epics/E15-acceptance-and-cutover/F15.2-gates-on-the-real-library.md
+              - F15.3 — Daily use and retiring the old repo: specs/epics/E15-acceptance-and-cutover/F15.3-daily-use-and-retire.md
       - Ideas:
           - specs/ideas/index.md
   - Decisions: adr/index.md

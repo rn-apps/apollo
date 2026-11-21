@@ -18,6 +18,13 @@ env:
   # this locally.
   UV_CACHE_DIR: .uv-cache
 
+# The kiln commands every namespace file calls, declared once so a pin changes
+# this file alone. go-task passes these to each included file; a namespace file
+# that declared its own would shadow them.
+vars:
+  KILN: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@703eefa056af5090cbdafd374f67677d02e08b81" kiln'
+  DEVOPS: 'uvx --from "rn-forge-kiln @ git+https://github.com/rn-forge/kiln@703eefa056af5090cbdafd374f67677d02e08b81" kiln-devops'
+
 includes:
   quality: tasks/quality.yml
   python: tasks/python.yml
@@ -54,46 +61,49 @@ tasks:
       - task: docs:build
 
   lint:
-    desc: Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences.
+    desc: Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, the generated API client, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences.
     cmds:
       - task: workspace:step
-        vars: {STEP: "python:lint", N: 1, OF: 13}
+        vars: {STEP: "python:lint", N: 1, OF: 14}
       - task: python:lint
       - task: workspace:step
-        vars: {STEP: "python:lint:imports", N: 2, OF: 13}
+        vars: {STEP: "python:lint:imports", N: 2, OF: 14}
       - task: python:lint:imports
       - task: workspace:step
-        vars: {STEP: "node:lint", N: 3, OF: 13}
+        vars: {STEP: "node:lint", N: 3, OF: 14}
       - task: node:lint
       - task: workspace:step
-        vars: {STEP: "node:lint:format", N: 4, OF: 13}
+        vars: {STEP: "node:lint:format", N: 4, OF: 14}
       - task: node:lint:format
       - task: workspace:step
-        vars: {STEP: "quality:lint:markdown", N: 5, OF: 13}
+        vars: {STEP: "web:client:check", N: 5, OF: 14}
+      - task: web:client:check
+      - task: workspace:step
+        vars: {STEP: "quality:lint:markdown", N: 6, OF: 14}
       - task: quality:lint:markdown
       - task: workspace:step
-        vars: {STEP: "quality:lint:toml", N: 6, OF: 13}
+        vars: {STEP: "quality:lint:toml", N: 7, OF: 14}
       - task: quality:lint:toml
       - task: workspace:step
-        vars: {STEP: "quality:lint:yaml", N: 7, OF: 13}
+        vars: {STEP: "quality:lint:yaml", N: 8, OF: 14}
       - task: quality:lint:yaml
       - task: workspace:step
-        vars: {STEP: "kiln:doctor", N: 8, OF: 13}
+        vars: {STEP: "kiln:doctor", N: 9, OF: 14}
       - task: kiln:doctor
       - task: workspace:step
-        vars: {STEP: "ci:lint:workflows", N: 9, OF: 13}
+        vars: {STEP: "ci:lint:workflows", N: 10, OF: 14}
       - task: ci:lint:workflows
       - task: workspace:step
-        vars: {STEP: "python:lint:audit", N: 10, OF: 13}
+        vars: {STEP: "python:lint:audit", N: 11, OF: 14}
       - task: python:lint:audit
       - task: workspace:step
-        vars: {STEP: "node:lint:audit", N: 11, OF: 13}
+        vars: {STEP: "node:lint:audit", N: 12, OF: 14}
       - task: node:lint:audit
       - task: workspace:step
-        vars: {STEP: "python:lint:licenses", N: 12, OF: 13}
+        vars: {STEP: "python:lint:licenses", N: 13, OF: 14}
       - task: python:lint:licenses
       - task: workspace:step
-        vars: {STEP: "node:lint:licenses", N: 13, OF: 13}
+        vars: {STEP: "node:lint:licenses", N: 14, OF: 14}
       - task: node:lint:licenses
 
   format:
@@ -138,3 +148,11 @@ tasks:
     desc: Remove build outputs, caches, and the rendered docs site.
     cmds:
       - task: workspace:clean
+
+  dev:
+    desc: Run the API and the frontend dev servers together; Ctrl-C stops both.
+    # deps run in parallel: each dev server blocks, so cmds could never reach
+    # the second one.
+    deps:
+      - task: api:dev
+      - task: web:dev

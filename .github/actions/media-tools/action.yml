@@ -1,0 +1,17 @@
+name: Install media tools
+description: >-
+  Install ffmpeg and ffprobe, which apollo's media tests call. Run by the
+  generated setup action as a [ci.hooks] setup step.
+
+runs:
+  using: composite
+  steps:
+    - name: Install ffmpeg
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes --no-install-recommends ffmpeg
+
+    - name: Show ffprobe version
+      shell: bash
+      run: ffprobe -version

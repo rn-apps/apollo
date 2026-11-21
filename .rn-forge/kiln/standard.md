@@ -27,14 +27,16 @@ The developer surface for this repo is exactly:
 | `task api:dev` | Run the API dev server on port 8000. |
 | `task build` | Build the API's wheel and sdist, and the frontend. |
 | `task clean` | Remove build outputs, caches, and the rendered docs site. |
+| `task dev` | Run the API and the frontend dev servers together; Ctrl-C stops both. |
 | `task docs:build` | Build the MkDocs site into .docs-site/ (or $1 when given). |
 | `task docs:generate` | Regenerate the docs' derived regions. |
 | `task docs:serve` | Serve the docs site locally with live reload on http://127.0.0.1:8080. |
 | `task format` | Format Python code, Prettier-formatted files, TOML, YAML and Markdown prose in place. |
 | `task kiln:apply` | Re-render the generated files from .rn-forge/kiln/config.toml. Pass --dry-run, or --force \<path> to overwrite a drifted file, after `--`. |
 | `task kiln:diff` | Show every generated file that differs from a fresh render, writing nothing. Pass --artifact \<key or path> after `--` to limit it to one. |
-| `task kiln:pin` | Move kiln to another ref (tag, branch or SHA) and re-render with it. Pass the ref after `--`. |
-| `task lint` | Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences. |
+| `task kiln:pin` | Pin kiln to a branch's newest commit, a tag or a SHA and re-render with it. Pass it after `--`; with none, follow `track`. |
+| `task kiln:upgrade` | Pin kiln to a ref after `--` (or follow `track`), apply the new kiln's standard, move the rn-forge ranges to its pin table and run `task validate`. A failure restores the previous pin, files and locks unless FORCE=1. |
+| `task lint` | Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, the generated API client, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences. |
 | `task setup` | Install the project and its dev + docs dependency groups. |
 | `task sonar:local` | Run the coverage tests and scan the checked-out branch on SonarCloud, awaiting the quality gate. Needs SONAR_TOKEN and sonar-scanner on PATH; pass --dry-run after -- to print the commands. |
 | `task test` | Run the API's pytest suite and the frontend's tests; pytest arguments after -- go to the API suite. |
@@ -42,6 +44,7 @@ The developer surface for this repo is exactly:
 | `task typecheck` | Type-check the API in pyright strict mode and the frontend through its Angular build. |
 | `task validate` | The aggregate gate — lint, typecheck, test, docs build. Any failure fails. |
 | `task version` | Print the package version from pyproject.toml. |
+| `task web:client` | Regenerate the frontend's API client from the API's OpenAPI document. |
 | `task web:dev` | Run the frontend dev server. |
 
 The CI surface, `ci:*`, is public only because a workflow step runs it from the
@@ -71,6 +74,11 @@ project at `apps/web` (project `web`). Every file the frontend scaffold wrote is
 repo-owned; kiln renders nothing under `apps/web`, and seeded a starter page
 that calls the API (`src/app/app.ts`, `app.html`, their specs, `app.config.ts`
 and `proxy.conf.json`) once at `kiln new`.
+
+**API client:** generated, never written by hand. `task web:client` writes the
+API's OpenAPI document to `apps/web/src/app/api/openapi.json` and regenerates
+`apps/web/src/app/api/client/` from it with `@hey-api/openapi-ts`. Both are
+committed, and `task lint` fails when they differ from what the API produces.
 
 Every other task is `internal: true`. The root `Taskfile.yml` holds wrappers
 only: each of its commands is a `task:` call into a `tasks/*.yml` namespace.
@@ -162,8 +170,8 @@ release:
 
 ```toml
 dependencies = [
-  "rn-forge-commons>=0.8.1,<0.9",
-  "rn-forge-cli>=0.1.2,<0.2",
+  "rn-forge-commons>=0.10.1,<0.11",
+  "rn-forge-cli>=0.2.1,<0.3",
 ]
 ```
 
@@ -187,6 +195,15 @@ To move the pin to another ref (a tag, a branch or a SHA, higher or lower), run
 `task kiln:pin -- <ref>`. It checks that the ref resolves, sets `[kiln] ref`,
 and re-renders with the kiln at that ref, so the move is one reviewable diff. Do
 not edit the ref by hand: `task kiln:apply` would then run the old kiln.
+
+A new kiln can raise the rn-forge floors, which `task kiln:pin` does not take,
+because `pyproject.toml` is this repository's own. Run
+`task kiln:upgrade -- <ref>` instead. The kiln at that ref pins itself, applies
+its standard, rewrites every rn-forge range to its pin table, prints the release
+notes in between, and runs `task setup` and `task validate`. It needs a clean
+working tree. A failure restores the previous pin, files and locks;
+`task kiln:upgrade FORCE=1 -- <ref>` keeps an applied upgrade so you can fix
+what `task validate` reports.
 
 ## 4. The import boundary
 
@@ -251,6 +268,14 @@ source in a `[source]` table; a local file is read and not recorded.
 `kiln config upgrade` with a newer one; each changes nothing without `--apply`,
 and keeps a key edited here as a repo override.
 
+## 9. kiln's architecture baseline
+
+`docs/adr/kiln/` holds the design decisions kiln's canon makes for this repo's
+product code, one managed record per file, listed in its `index.md`. They are
+part of this standard: a change to product code follows them, and a departure
+from one is an ADR of this repo's own that names the record it supersedes.
+`.importlinter` enforces the records an import contract can express.
+
 ## CI checks
 
 Switch a configured check in `[ci.checks]`; see the CI architecture page for the
@@ -271,7 +296,7 @@ model.
 | Docs strict build | `task docs:build` | D: `[docs] profile = "mkdocs"` |
 | `dependency-review` | action | S |
 | Sonar | `sonar` job | C: `[ci] sonar`, default `true` |
-| Release | `release` job | C: `[ci] release`, default `tag-exists`; `pypi` for `python-lib`; `nx-dispatch` for `node-lib`; `none` |
+| Release | `release` job | C: `[ci] release`, default `tag-exists`; `pypi` for `python-lib`; `nx-dispatch` or `npm` for `node-lib`; `none` |
 | `verify-release` | `task ci:verify-release` | D: a release mode other than `none` |
 | Docs deploy | `docs` job | D: `[docs] profile = "mkdocs"` |
 | `ci-ok` | none | S |
@@ -283,3 +308,10 @@ model.
 A repository-owned workflow is allowed only for a scheduled or non-gating run;
 it keeps its own action pins current through Dependabot, which ignores the
 actions kiln pins.
+
+**Dependabot and releases.** Dependabot pull requests are not merged into a
+branch that publishes. A release absorbs the open Dependabot updates on its
+release branch before the cut, and the repository's release runbook says how.
+Security updates are the exception: they ignore `target-branch` and open against
+the default branch, so they ship as an urgent patch release, not held for the
+next cut.
