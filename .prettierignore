@@ -15,6 +15,7 @@ coverage/
 .angular/
 .venv/
 .uv-cache/
+apps/web/src/app/api/
 .docs-site/
 # Owned by kiln
 .rn-forge/

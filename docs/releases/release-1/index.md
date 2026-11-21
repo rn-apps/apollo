@@ -19,7 +19,7 @@ contract and the test harness).
 
 | Feature | Epic | State |
 | -- | -- | -- |
-| [F1.1 — Dependencies, entry point and CI tools](../../specs/epics/E1-backend-foundation/F1.1-dependencies-and-entry.md) | E1 | Active |
+| [F1.1 — Dependencies, entry point and CI tools](../../specs/epics/E1-backend-foundation/F1.1-dependencies-and-entry.md) | E1 | Closed |
 | [F1.2 — Settings, runtime paths and logging](../../specs/epics/E1-backend-foundation/F1.2-settings-and-runtime.md) | E1 | Closed |
 | [F1.3 — Errors, paging and the API contract](../../specs/epics/E1-backend-foundation/F1.3-api-contract.md) | E1 | New |
 | [F1.9 — Test harness and layering guardrails](../../specs/epics/E1-backend-foundation/F1.9-harness-and-guardrails.md) | E1 | Closed |

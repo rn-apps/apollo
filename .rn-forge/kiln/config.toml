@@ -35,10 +35,9 @@ lifecycle = false
 [kiln]
 # A kiln release tag, `v<version>`; a branch only before kiln's first
 # release. `kiln apply` pins the dev dependency and the CI install to it.
-ref = "7b0883119be5d89027bb0fb78d7e5233377b0cee"
+ref = "3a11258b9a09cefb9f4818a74317708564798e4c"
 
 # The `python-web-app` archetype's settings.
-track = "feature/v1"
 [archetype.python-web-app]
 # The backend framework. Changing it re-renders the API member's
 # dependencies and starter files on `kiln apply`.

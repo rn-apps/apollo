@@ -36,7 +36,7 @@ The developer surface for this repo is exactly:
 | `task kiln:diff` | Show every generated file that differs from a fresh render, writing nothing. Pass --artifact \<key or path> after `--` to limit it to one. |
 | `task kiln:pin` | Pin kiln to a branch's newest commit, a tag or a SHA and re-render with it. Pass it after `--`; with none, follow `track`. |
 | `task kiln:upgrade` | Pin kiln to a ref after `--` (or follow `track`), apply the new kiln's standard, move the rn-forge ranges to its pin table and run `task validate`. A failure restores the previous pin, files and locks unless FORCE=1. |
-| `task lint` | Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences. |
+| `task lint` | Every lint — Python, imports, the frontend's Nx lint, Prettier formatting, the generated API client, Markdown, TOML and YAML formatting, kiln's checks (generated files, task layout, CI, dependencies, docs), workflow security, dependency vulnerabilities, dependency licences. |
 | `task setup` | Install the project and its dev + docs dependency groups. |
 | `task sonar:local` | Run the coverage tests and scan the checked-out branch on SonarCloud, awaiting the quality gate. Needs SONAR_TOKEN and sonar-scanner on PATH; pass --dry-run after -- to print the commands. |
 | `task test` | Run the API's pytest suite and the frontend's tests; pytest arguments after -- go to the API suite. |
@@ -44,6 +44,7 @@ The developer surface for this repo is exactly:
 | `task typecheck` | Type-check the API in pyright strict mode and the frontend through its Angular build. |
 | `task validate` | The aggregate gate — lint, typecheck, test, docs build. Any failure fails. |
 | `task version` | Print the package version from pyproject.toml. |
+| `task web:client` | Regenerate the frontend's API client from the API's OpenAPI document. |
 | `task web:dev` | Run the frontend dev server. |
 
 The CI surface, `ci:*`, is public only because a workflow step runs it from the
@@ -73,6 +74,11 @@ project at `apps/web` (project `web`). Every file the frontend scaffold wrote is
 repo-owned; kiln renders nothing under `apps/web`, and seeded a starter page
 that calls the API (`src/app/app.ts`, `app.html`, their specs, `app.config.ts`
 and `proxy.conf.json`) once at `kiln new`.
+
+**API client:** generated, never written by hand. `task web:client` writes the
+API's OpenAPI document to `apps/web/src/app/api/openapi.json` and regenerates
+`apps/web/src/app/api/client/` from it with `@hey-api/openapi-ts`. Both are
+committed, and `task lint` fails when they differ from what the API produces.
 
 Every other task is `internal: true`. The root `Taskfile.yml` holds wrappers
 only: each of its commands is a `task:` call into a `tasks/*.yml` namespace.
@@ -261,6 +267,14 @@ source in a `[source]` table; a local file is read and not recorded.
 `kiln config update` re-resolves the source with the running kiln,
 `kiln config upgrade` with a newer one; each changes nothing without `--apply`,
 and keeps a key edited here as a repo override.
+
+## 9. kiln's architecture baseline
+
+`docs/adr/kiln/` holds the design decisions kiln's canon makes for this repo's
+product code, one managed record per file, listed in its `index.md`. They are
+part of this standard: a change to product code follows them, and a departure
+from one is an ADR of this repo's own that names the record it supersedes.
+`.importlinter` enforces the records an import contract can express.
 
 ## CI checks
 

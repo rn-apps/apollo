@@ -9,3 +9,19 @@ tasks:
     desc: Run the frontend dev server.
     cmds:
       - pnpm nx serve web
+  client:
+    desc: Regenerate the frontend's API client from the API's OpenAPI document.
+    cmds:
+      - mkdir -p apps/web/src/app/api
+      - uv run --package apollo-api python -c "import json; from apollo_api.app import app; print(json.dumps(app.openapi(), indent=2, sort_keys=True))" > apps/web/src/app/api/openapi.json
+      - pnpm openapi-ts
+  client:check:
+    desc: Fail when the committed API client differs from what the API produces.
+    internal: true
+    cmds:
+      - task: client
+      - |
+        if git rev-parse -q --verify HEAD >/dev/null 2>&1 && [ -n "$(git status --porcelain -- apps/web/src/app/api/)" ]; then
+          echo "the API client is stale — run task web:client and commit the result" >&2
+          exit 1
+        fi

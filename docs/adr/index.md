@@ -29,3 +29,13 @@ in [specs](../specs/index.md).
 | [0019](ADR-0019.md) | Code is layered one way, back end and front end, and the layering is enforced by lint | imports inside `apps/api` and `apps/web` |
 | [0020](ADR-0020.md) | The API is the rn-forge web standard at `/v1`, with one documented paging exception, and the client is generated | the HTTP contract between `apps/api` and `apps/web` |
 | [0021](ADR-0021.md) | apollo.db is async on rn-forge-sqlalchemy, from one fresh baseline migration | `apollo.db`: its engine, sessions, models and migrations |
+
+<!-- BEGIN rn-forge kiln -->
+
+## kiln's architecture baseline
+
+kiln's canon decides part of this repository's product design, in
+[kiln's architecture baseline](kiln/index.md). A decision here that departs from
+one of those records names it, and says which part it supersedes.
+
+<!-- END rn-forge kiln -->
