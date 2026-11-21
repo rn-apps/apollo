@@ -122,7 +122,7 @@
     },
     ".rn-forge/kiln/standard.md": {
       "begin_marker": null,
-      "content_hash": "505cbc227adc4c849eb4dec1bc1b3aefbdfeb5c44fa6dbbc0c3302e1cefcb2a5",
+      "content_hash": "f9c978c40104d4336bcfece79744e98ef614dc322acd975eaafde64fc64b5768",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -154,7 +154,7 @@
     },
     "Taskfile.yml": {
       "begin_marker": null,
-      "content_hash": "c32607f5601cc81cb1ba37eba8c6edf4310f64608f9a16312b463b64b41c698c",
+      "content_hash": "f361432490b3ff80ed1fb89ddb6b8cf55064634c0f7f5d7cf83e5f8f43053c75",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -354,7 +354,7 @@
     },
     "docs/releases/_structure.md": {
       "begin_marker": null,
-      "content_hash": "2daa5bdcf0379a0b34f63e56925961a09d8626cf426f83b52c07bc6356b91722",
+      "content_hash": "883d3cebabadfb99c31b325c027bdfaf71a07c51e3e8a7a3a7081dd719ee320a",
       "end_marker": null,
       "key_paths": null,
       "kind": "managed",
@@ -530,7 +530,7 @@
     }
   },
   "metadata": {
-    "config_hash": "b54a1b84ede2672bf39b1d16661c051209c5157ee38d3e2ea0608f957cb186a4",
+    "config_hash": "28bc9e35eff7b6bb79675a0c1bfea31d462b834348995f0dc0757415958884ae",
     "config_provenance": {
       "archetype.python-web-app.api_dir": {
         "layer": "defaults",
@@ -596,7 +596,7 @@
       },
       "kiln.ref": {
         "layer": "repo",
-        "value": "116aa35c85f4fa0828864010e992685f4bd5762a"
+        "value": "703eefa056af5090cbdafd374f67677d02e08b81"
       },
       "repository.archetype": {
         "layer": "flags",
