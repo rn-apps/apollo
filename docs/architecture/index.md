@@ -23,7 +23,7 @@ browser SPA ──HTTP /v1──▶ routes ──▶ workflows ──▶ beets a
 | Page | Built by | Describes |
 | -- | -- | -- |
 | [Backend](backend.md) | E1 | The seven layers, app composition, lifespan order, settings and the pykit pieces under `platform`. |
-| [Actor and caches](actor-and-caches.md) | E1 | The beets actor rules, the three-phase pattern, snapshot caches and offset paging. |
+| [Actor and caches](actor-and-caches.md) | E1 | The beets actor rules, the three-phase pattern, snapshot caches and paging into beets SQL. |
 | [Jobs and events](jobs-and-events.md) | E1 | Job states, the worker, restart recovery, job types, the event stream and invalidation. |
 | [Data](data.md) | E1 | `library.db` and `apollo.db`, the baseline tables, cache rules and the `.apollo/` tree. |
 | [API](api.md) | E1 | The `/v1` surface by area, problems, paging, status and the generated client. |

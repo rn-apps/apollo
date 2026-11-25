@@ -68,17 +68,25 @@ matches on `type` through ngkit's problem helpers.
 
 ## Paging
 
-| List | Source | Paging |
-| -- | -- | -- |
-| Tracks, albums, inbox | beets | offset, response carries `total` |
-| Jobs, audit, playlists | `apollo.db` | the kit's cursor pagination |
+Every list answers in the kit's cursor shape,
+`{items, nextPageToken, totalSize}`, and takes `pageSize` and `pageToken`
+([ADR-0020](../adr/ADR-0020.md)). `pageSize` is clamped to 500, never rejected.
 
-Offset paging exists because the virtual grid needs the full height to scroll
-and seek ([ADR-0020](../adr/ADR-0020.md)). The kit's `keyset` serves SQLAlchemy
-selects only. This is apollo's one departure from the kit's API rules. Offset
-responses follow the API's casing rule like every body: camelCase on the wire,
-snake_case in Python, through `rn_forge.web.WireModel`. Beets fields are
-camelCased too, for example `mb_artistid` is `mbArtistid` (pykit rule
+| List | Source | Page token |
+| -- | -- | -- |
+| Tracks, albums, inbox | beets | apollo's own: the next offset into beets SQL, bound to `q` and `sort` |
+| Jobs, audit, playlists | `apollo.db` | the kit's keyset token |
+
+The kit's `keyset` serves SQLAlchemy selects only, so beets lists carry their
+own token, built in `index/paging`
+([F1.5](../specs/epics/E1-backend-foundation/F1.5-beets-actor.md)). They always
+return `totalSize`, which `fetch_page` counts with the page. A malformed beets
+token, or one presented with a different `q` or `sort`, answers the kit's 400
+`InvalidCursor` problem. Beets routes read `pageToken` through apollo's own
+dependency, because the kit's `page_params` decodes only the kit's tokens. Pages
+follow the API's casing rule like every body: camelCase on the wire, snake_case
+in Python, through `rn_forge.web.WireModel`. Beets fields are camelCased too,
+for example `mb_artistid` is `mbArtistid` (pykit rule
 `casing.response-bodies-are-camel-case`).
 
 ## Artwork

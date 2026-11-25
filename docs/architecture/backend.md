@@ -14,7 +14,7 @@ Each layer imports only from layers above it in this table (lower number).
 | -- | -- | -- |
 | 1 | `platform/` | `settings`, runtime paths, `errors` (`ApolloError` hierarchy), database engine and sessions, migrations runner, job runtime, event stream, logging. No music knowledge. |
 | 2 | `media/` | Tag read and write (`tags`), artwork (`artwork`), audio probing (`quality`), tool detection (`tools`), file operations (`fsops`), custom beets fields (`mediafields`), the ID3v2.4 guard. |
-| 3 | `index/` | The beets actor (`actor`), the track DTO projection (`dto`), snapshots (`cache`, `facets`, `stats`), offset paging (`paging`), scan (`scan`), path projection (`paths`), annotation lookup. |
+| 3 | `index/` | The beets actor (`actor`), the track DTO projection (`dto`), snapshots (`cache`, `facets`, `stats`), paging into beets SQL and its page token (`paging`), scan (`scan`), path projection (`paths`), annotation lookup. |
 | 4 | `proposals/`, `validation/`, `apple/` | Read-only tag proposals from path, filename and `.info.json`. Content checks (`checks`, `tagcheck`) and their fan-out. Music.app XML parsing, AppleScript calls, play statistics. |
 | 5 | `workflows/` | The use cases: `tracks`, `audit`, `relocate`, `inbox`, `annotations`, `replacement`, `playlists`. Every dry run, audit entry and apply lives here. |
 | 6 | `jobs/` | One handler per job type, each a thin adapter from a job context to a workflow. |

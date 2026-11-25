@@ -27,7 +27,7 @@ in [specs](../specs/index.md).
 | [0017](ADR-0017.md) | Apple Music is a one-way XML import and a separate one-way export, and inbox promotion imports into Music.app | every exchange between apollo and Music.app |
 | [0018](ADR-0018.md) | Inbox media is identified by path, not a fabricated id | how staged inbox files are referenced before promotion |
 | [0019](ADR-0019.md) | Code is layered one way, back end and front end, and the layering is enforced by lint | imports inside `apps/api` and `apps/web` |
-| [0020](ADR-0020.md) | The API is the rn-forge web standard at `/v1`, with one documented paging exception, and the client is generated | the HTTP contract between `apps/api` and `apps/web` |
+| [0020](ADR-0020.md) | The API is the rn-forge web standard at `/v1`, and the client is generated | the HTTP contract between `apps/api` and `apps/web` |
 | [0021](ADR-0021.md) | apollo.db is async on rn-forge-sqlalchemy, from one fresh baseline migration | `apollo.db`: its engine, sessions, models and migrations |
 
 <!-- BEGIN rn-forge kiln -->

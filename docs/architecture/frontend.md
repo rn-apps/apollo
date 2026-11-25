@@ -66,7 +66,7 @@ path.
 
 | State | Owner |
 | -- | -- |
-| Query, sort, page, selection detail, open item | the URL. A reload or Copy link reproduces it ([ADR-0015](../adr/ADR-0015.md)) |
+| Query, sort, selection detail, open item | the URL. A reload or Copy link reproduces it ([ADR-0015](../adr/ADR-0015.md)) |
 | Health, error counts, active job, worker state | the status store, fed by `/v1/events` |
 | Job frames | the event stream; terminal frames drive invalidation |
 | Command palette actions, audio preview and queue | shell state |
@@ -117,7 +117,7 @@ search surface.
 
 The track grid renders fixed-height virtual rows with `cdk/scrolling`. The gate
 is 12,000 rows at 60 fps, and acceptance measures it against a 12k-track
-fixture. Row height is constant, so scroll position maps to an offset and the
-grid can seek anywhere with the `total` from offset paging
-([API](api.md#paging)). Artwork in a row is a thumbnail request, never inline
-data.
+fixture. Row height is constant. The grid shows `totalSize` as the result count
+and loads the next page by `nextPageToken` as the user nears the last loaded row
+([API](api.md#paging)). It does not seek to a row that is not loaded. Artwork in
+a row is a thumbnail request, never inline data.

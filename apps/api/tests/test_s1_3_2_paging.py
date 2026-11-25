@@ -1,4 +1,4 @@
-"""S1.3.2: paging shapes and app limits."""
+"""S1.3.2: app limits."""
 
 from __future__ import annotations
 
@@ -7,24 +7,6 @@ from fastapi.testclient import TestClient
 from rn_forge.web import PROBLEM_MEDIA_TYPE
 
 from apollo_api.app import create_app
-from apollo_api.platform.paging import OffsetPage
-
-
-def test_s1_3_2_1_offset_page() -> None:
-    page = OffsetPage[int](items=[1, 2], offset=4, limit=1000, total=9)
-    assert page.limit == 500
-    assert page.model_dump() == {"items": [1, 2], "offset": 4, "limit": 500, "total": 9}
-    assert OffsetPage[int](items=[], offset=0, limit=50, total=0).limit == 50
-
-    application = create_app()
-
-    @application.get("/page", response_model=OffsetPage[int])
-    def _page() -> OffsetPage[int]:
-        return OffsetPage[int](items=[1], offset=0, limit=10, total=1)
-
-    response = TestClient(application).get("/page")
-    assert response.status_code == 200
-    assert response.json() == {"items": [1], "offset": 0, "limit": 10, "total": 1}
 
 
 def test_s1_3_2_2_body_limit() -> None:

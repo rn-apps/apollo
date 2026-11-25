@@ -83,7 +83,7 @@ Numbers from the old app on the 12,335-track library:
 | `list(lib.items())` in a request path | 793 ms at 12k tracks | not applicable |
 | Track list page | 29 ms | not applicable |
 
-## Offset paging into beets SQL
+## Paging into beets SQL
 
 beets has no `LIMIT` or `OFFSET`. `index/paging.fetch_page` reuses beets' query
 parser to build the `WHERE` clause and adds `ORDER BY`, `LIMIT` and `OFFSET`. It
@@ -101,4 +101,6 @@ A test pins equivalence between `fetch_page` and `Library.items()` for the same
 queries. The fallback path is correct but slower, and a snapshot or a stored
 scan-time attribute is the way to avoid it for a hot query.
 
-This is the paging used by tracks, albums and inbox ([API](api.md#paging)).
+The tracks, albums and inbox lists carry the offset inside their page token
+([API](api.md#paging)). A write between two requests can shift such a list by a
+row, and the client refetches after a mutation.
