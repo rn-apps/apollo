@@ -5,8 +5,8 @@
 ; The import boundary, in the half of it import-linter can enforce (see
 ; .rn-forge/kiln/standard.md, "The import boundary").
 ;
-; The rule that rn-forge-commons and rn-forge-tooling are the *only* rn-forge
-; packages a repo may depend on is NOT here, and cannot be: import-linter
+; The rule that a repo depends only on the rn-forge packages its archetype
+; allows is NOT here, and cannot be: import-linter
 ; rejects subpackages of external packages, so `rn_forge.kiln` is not a legal
 ; forbidden module however the contract is written. That rule is enforced where
 ; it is actually decidable — at the dependency declaration, by
@@ -36,4 +36,45 @@ forbidden_modules =
     click
     django
 allow_indirect_imports = False
+
+; kiln's architecture baseline, ARCH-0001: imports point inward. Every layer is
+; optional, because a tier exists only once code needs it, so this holds on a
+; fresh repo and fails on the first import that points upward.
+[importlinter:contract:dependencies-point-inward]
+name = Imports in apollo_api point inward (ARCH-0001)
+type = layers
+containers =
+    apollo_api
+layers =
+    (main) : (commands) : (product) : (app) : (http)
+    (services) | (adapters)
+    (domain)
+
+; kiln's architecture baseline, ARCH-0004: the web framework stops at the entry
+; points. `.**` matches the modules below each package, so this holds before the
+; package exists.
+[importlinter:contract:framework-stays-at-the-edge]
+name = apollo_api's domain and services import no web framework (ARCH-0004)
+type = forbidden
+source_modules =
+    apollo_api.domain.**
+    apollo_api.services.**
+forbidden_modules =
+    fastapi
+    starlette
+allow_indirect_imports = False
 # END rn-forge kiln
+
+[importlinter:contract:layers]
+name = apollo_api is layered one way (ADR-0019)
+type = layers
+containers =
+    apollo_api
+layers =
+    routes
+    (jobs)
+    (workflows)
+    (proposals) | (validation) | (apple)
+    (index)
+    (media)
+    platform

@@ -35,7 +35,7 @@ lifecycle = false
 [kiln]
 # A kiln release tag, `v<version>`; a branch only before kiln's first
 # release. `kiln apply` pins the dev dependency and the CI install to it.
-ref = "feature/v1"
+ref = "703eefa056af5090cbdafd374f67677d02e08b81"
 
 # The `python-web-app` archetype's settings.
 [archetype.python-web-app]
@@ -144,7 +144,7 @@ jobs = []
 # Local composite actions the generated setup action runs as its last steps.
 # Changing the list rewrites the setup action on `kiln apply`.
 # Default: [].
-setup = []
+setup = ["./.github/actions/media-tools"]
 
 # Local composite actions every Pages-uploading job runs before the upload,
 # with `SITE_DIR` set. Changing the list rewrites the workflows on
@@ -158,3 +158,13 @@ docs = []
 # `ci.yml` and the check tasks on `kiln apply`.
 # Default: {}.
 [ci.checks]
+licenses = { deny = [
+    "GPL",
+    "GPL-*",
+    "AGPL",
+    "AGPL-*",
+    "UNKNOWN",
+], ignore = [
+    "mutagen",
+    "Unidecode",
+] }

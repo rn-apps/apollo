@@ -43,7 +43,8 @@ changing anything structural.
   `mkdocs`, `pnpm`, `npx`, `nx`, `ng` or `kiln` directly, in a workflow or in
   a document — the ten root verbs are
   `setup validate lint format typecheck test test:coverage build clean version`,
-  plus `docs:build docs:serve docs:generate` and `api:dev`, plus `web:dev`.
+  plus `docs:build docs:serve docs:generate` and `api:dev`, plus `web:dev`,
+  and `dev` runs both.
 - **Frontend:** `angular`, managed by pnpm + Nx at `apps/web` (project `web`).
   Every file the frontend scaffold wrote is repo-owned; kiln renders nothing
   under `apps/web`, and seeded a starter page that calls the API
@@ -55,6 +56,9 @@ changing anything structural.
 - **Docs rules:** [docs/\_structure.md](docs/_structure.md) says what belongs
   where; [docs/index.md](docs/index.md) is the reader's entry point. Run
   `task docs:generate` after adding a page.
+- **Architecture:** product code follows
+  [kiln's architecture baseline](docs/adr/kiln/index.md). A departure from one
+  of its records is an ADR of this repo's own, never an edit there.
 - **Briefs:** a story ready to build gets a brief under its epic's `_briefs/`,
   deleted when the story closes
   ([docs/specs/\_structure.md](docs/specs/_structure.md#briefs)).

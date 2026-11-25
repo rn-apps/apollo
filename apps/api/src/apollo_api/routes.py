@@ -8,7 +8,7 @@ from fastapi import APIRouter, Depends
 from rn_forge.fastapi import page_params
 from rn_forge.web import Cursor
 
-from apollo_api.errors import ItemNotFound
+from apollo_api.platform.errors import NotFoundError
 
 router = APIRouter(prefix="/v1", tags=["items"])
 
@@ -26,5 +26,5 @@ async def list_items(
 
 @router.get("/items/{item_id}")
 async def get_item(item_id: str) -> dict[str, str]:
-    """Fail with ``ItemNotFound``: the starter holds no items."""
-    raise ItemNotFound(item_id)
+    """Fail with ``NotFoundError``: the starter holds no items."""
+    raise NotFoundError("item {} not found", item_id)

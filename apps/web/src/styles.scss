@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@layer theme, base, rnf, components, utilities;
+
+@import '@rn-forge/ng-tailwind/tokens.css';
+@import '@rn-forge/ng-tailwind/base.css';
+@import 'tailwindcss/index.css' source('./');
+@import '@rn-forge/ng-tailwind/tailwind.css';
+@import './styles/theme-apollo.css';
+@import './styles/base.css';

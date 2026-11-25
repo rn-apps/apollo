@@ -1,6 +1,12 @@
 # apollo
 
-What this repository is, in a paragraph.
+apollo is a local-first music-library workstation for macOS. Audio files are the
+source of truth; beets is the tag and index layer, a FastAPI service exposes
+safe, dry-run-first, reversible use cases, and an Angular app is the
+keyboard-first management UI ([ADR-0001](docs/adr/ADR-0001.md)). This repository
+is a rebuild of the old apollo on kiln, pykit and ngkit
+([ADR-0002](docs/adr/ADR-0002.md)); status and what is next are on
+[the spec board](docs/specs/index.md).
 
 ## Working here
 

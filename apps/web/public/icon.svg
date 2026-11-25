@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Apollo">
+  <title>Apollo</title>
+  <defs>
+    <linearGradient id="apollo-field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c3d63" />
+      <stop offset="55%" stop-color="#472a68" />
+      <stop offset="100%" stop-color="#0e1016" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#apollo-field)" />
+  <g fill="none" stroke="#ff5c7a" stroke-width="3.2" stroke-linecap="round">
+    <path d="M20 44 C14 34 15 22 21 15" />
+    <path d="M44 44 C50 34 49 22 43 15" />
+  </g>
+  <g stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round">
+    <line x1="26" y1="24" x2="26" y2="43" />
+    <line x1="32" y1="19" x2="32" y2="43" />
+    <line x1="38" y1="27" x2="38" y2="43" />
+  </g>
+  <g stroke="#f4f6fb" stroke-width="3.2" stroke-linecap="round">
+    <line x1="19" y1="16" x2="45" y2="16" />
+    <line x1="18" y1="45" x2="46" y2="45" />
+  </g>
+</svg>
